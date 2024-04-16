@@ -10,15 +10,23 @@ import {Link, useNavigate} from "react-router-dom";
 export default function LoginPerformer() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [buttonClicked, setButtonClicked] = useState(false);
     const navigate = useNavigate();
 
     async function handleSubmit (e) {
         e.preventDefault();
+        setButtonClicked(true);
 
         try {
             const result = await loginPerformer(username, password);
             console.log(result);
+            if (result.success) {
             navigate("/performerHome");
+            } else {
+                setErrorMessage("Login failed. Please try again.")
+                console.log("Login failed. Please try again.");
+            }
 
         } catch (error) {
             console.log(error);
@@ -36,7 +44,7 @@ export default function LoginPerformer() {
                                   name="username"
                                   value={username}
                                   onChange={(e) => setUsername(e.target.value)}
-                                  placeholder="Enter email"/>
+                                  placeholder="Enter Username"/>
                 </Form.Group>
                 <br/>
                 <Form.Group controlId="formBasicPassword">
@@ -45,7 +53,7 @@ export default function LoginPerformer() {
                                   name="password"
                                   value={password}
                                   onChange={(e) => setPassword(e.target.value)}
-                                  placeholder="Password"/>
+                                  placeholder="Enter Password"/>
                 </Form.Group>
                 <br/>
 
@@ -53,6 +61,9 @@ export default function LoginPerformer() {
                     Login
                 </Button>
             </Form>
+            <br/>
+            {buttonClicked && !errorMessage && <p>Loading...</p>}
+            {errorMessage && <p>{errorMessage}</p>}
 
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p>Don't have an account?</p>

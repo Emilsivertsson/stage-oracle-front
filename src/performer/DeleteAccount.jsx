@@ -8,7 +8,7 @@ export default function DeleteAccount() {
 
     const handleDelete = async () => {
         await deleteAccount();
-        navigate("/performerHome");
+        navigate("/");
     };
 
     return (

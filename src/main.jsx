@@ -17,6 +17,7 @@ import LogOut from "./performer/Logout.jsx";
 
 import Layout from "./Layout.jsx";
 import DeleteAccount from "./performer/DeleteAccount.jsx";
+import Terms from "./performer/Terms.jsx";
 
 const router = createBrowserRouter([
 
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
             { path: '/measurementsUpdate', element: <PerformerMeasurementsUpdate />},
             { path: '/deleteAccount', element: <DeleteAccount />},
             { path: '/logout', element: <LogOut />},
+            { path: '/Terms', element: <Terms />},
             { path: '*', element: <PageNotFound />}
         ]
     }

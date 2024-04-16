@@ -8,7 +8,7 @@ export default function Logout() {
 
     const handleDelete = async () => {
         await logoutPerformer();
-        navigate("/performerHome");
+        navigate("/");
     };
 
     return (

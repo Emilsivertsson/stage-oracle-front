@@ -31,7 +31,7 @@ export const loginPerformer = async (username, password) => {
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
-        return { success: false, message: error.response?.data || error.message || "Login failed" };
+        return { success: false, message: error.response.data || error.message || "Login failed" };
     }
 }
 
@@ -102,6 +102,7 @@ export const deleteAccount = async () => {
             }
         );
         cookies.remove("jwt");
+        console.log(response);
         return {success: true, data: response.data};
     } catch (error) {
         console.error(error);
