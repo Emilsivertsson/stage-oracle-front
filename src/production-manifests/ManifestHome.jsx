@@ -33,7 +33,7 @@ export default function ManifestHome() {
                                 <p>Manifest id: {manifest.id}</p>
                                 <p>Manifest year:{manifest.year}</p>
 
-                                <Link to={`/casts/${manifest.id}`}>
+                                <Link to={`/castHome/${manifest.id}`}>
                                     <Button variant="primary">View Manifest Casts</Button>
                                 </Link>
                                 <Link to={`/updateManifest/${manifest.id}/${productionId}`}>

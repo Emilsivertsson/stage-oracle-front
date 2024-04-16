@@ -25,6 +25,14 @@ import CreateManifest from "./production-manifests/CreateManifest.jsx";
 import UpdateManifest from "./production-manifests/UpdateManifest.jsx";
 import DeleteManifest from "./production-manifests/DeleteManifest.jsx";
 import ManifestHome from "./production-manifests/ManifestHome.jsx";
+import CastHome from "./production-casts/CastHome.jsx";
+import DeleteCast from "./production-casts/DeleteCast.jsx";
+import UpdateCast from "./production-casts/UpdateCast.jsx";
+import CreateCast from "./production-casts/CreateCast.jsx";
+import CreatePerformer from "./production-performers/CreatePerformer.jsx";
+import PerformersHome from "./production-performers/PerformersHome.jsx";
+import DeletePerformer from "./production-performers/DeletePerformer.jsx";
+
 
 const router = createBrowserRouter([
 
@@ -53,6 +61,13 @@ const router = createBrowserRouter([
             { path: '/updateManifest/:manifestId/:productionId', element: <UpdateManifest />},
             { path: '/deleteManifest/:manifestId/:productionId', element: <DeleteManifest />},
             { path: '/manifestHome/:productionId', element: <ManifestHome />},
+            { path: '/castHome/:manifestId', element: <CastHome />},
+            { path: '/deleteCast/:castId/:manifestId', element: <DeleteCast />},
+            { path: '/updateCast/:castId/:manifestId', element: <UpdateCast />},
+            { path: '/createCast/:manifestId', element: <CreateCast />},
+            { path: '/createPerformer/:castId', element: <CreatePerformer />},
+            { path: '/performersHome/:castId', element: <PerformersHome />},
+            { path: '/deletePerformer/:performerId/:castId', element: <DeletePerformer />},
             { path: '*', element: <PageNotFound />}
         ]
     }
