@@ -32,6 +32,18 @@ import CreateCast from "./production-casts/CreateCast.jsx";
 import CreatePerformer from "./production-performers/CreatePerformer.jsx";
 import PerformersHome from "./production-performers/PerformersHome.jsx";
 import DeletePerformer from "./production-performers/DeletePerformer.jsx";
+import ActsHome from "./production-acts/ActsHome.jsx";
+import DeleteAct from "./production-acts/DeleteAct.jsx";
+import UpdateAct from "./production-acts/UpdateAct.jsx";
+import CreateAct from "./production-acts/CreateAct.jsx";
+import UpdateCostume from "./production-costumes/UpdateCostume.jsx";
+import DeleteCostume from "./production-costumes/DeleteCostume.jsx";
+import CreateCostume from "./production-costumes/CreateCostume.jsx";
+import CostumesHome from "./production-costumes/CostumesHome.jsx";
+import GarmentsHome from "./production-garments/GarmentsHome.jsx";
+import CreateGarment from "./production-garments/CreateGarment.jsx";
+import UpdateGarment from "./production-garments/UpdateGarment.jsx";
+import DeleteGarment from "./production-garments/DeleteGarment.jsx";
 
 
 const router = createBrowserRouter([
@@ -68,6 +80,18 @@ const router = createBrowserRouter([
             { path: '/createPerformer/:castId', element: <CreatePerformer />},
             { path: '/performersHome/:castId', element: <PerformersHome />},
             { path: '/deletePerformer/:performerId/:castId', element: <DeletePerformer />},
+            { path: '/actsHome/:performerId', element: <ActsHome />},
+            { path: '/deleteAct/:actId/:performerId', element: <DeleteAct />},
+            { path: '/updateAct/:actId/:performerId', element: <UpdateAct />},
+            { path: '/createAct/:performerId', element: <CreateAct />},
+            { path: '/costumesHome/:actId', element: <CostumesHome />},
+            { path: '/createCostume/:actId/', element: <CreateCostume />},
+            { path: '/deleteCostume/:costumeId/:actId', element: <DeleteCostume />},
+            { path: '/updateCostume/:costumeId/:actId', element: <UpdateCostume />},
+            { path: '/garmentsHome/:costumeId', element: <GarmentsHome />},
+            { path: '/createGarment/:costumeId', element: <CreateGarment />},
+            { path: '/updateGarment/:garmentId/:costumeId', element: <UpdateGarment />},
+            { path: '/deleteGarment/:garmentId/:costumeId', element: <DeleteGarment />},
             { path: '*', element: <PageNotFound />}
         ]
     }

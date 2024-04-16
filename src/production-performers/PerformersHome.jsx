@@ -23,28 +23,29 @@ export default function PerformersHome() {
             <h1>Casts</h1>
             <Link to={`/createPerformer/${castId}`}>
                 <Button variant="primary">Create new Performer</Button>
-            </Link>{performers.map((cast, index) => (
-                <div key={index}>
-                    <Accordion >
-                        <Accordion.Item eventKey={index}>
-                            <Accordion.Header>{performers.firstName + performers.lastName}</Accordion.Header>
-                            <Accordion.Body>
-                                <p>Performer id: {performers.id}</p>
-                                <p>Performer Firstname: {performers.firstName}</p>
-                                <p>Performer Lastname: {performers.lastName}</p>
+            </Link>
+            {performers.map((performer, index) => (
+            <div key={index}>
+                <Accordion >
+                    <Accordion.Item eventKey={index}>
+                        <Accordion.Header>{performer.firstName + ' ' + performer.lastName}</Accordion.Header>
+                        <Accordion.Body>
+                            <p>Performer id: {performer.id}</p>
+                            <p>Performer Firstname: {performer.firstName}</p>
+                            <p>Performer Lastname: {performer.lastName}</p>
 
 
-                                <Link to={`/acts/${performers.id}`}>
-                                    <Button variant="primary">View Performers Acts</Button>
-                                </Link>
-                                <Link to={`/deletePerformer/${performers.id}/${castId}`}>
-                                    <Button variant="danger">Delete Cast</Button>
-                                </Link>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                    </Accordion>
-                </div>
-            ))}
+                            <Link to={`/actsHome/${performer.id}`}>
+                                <Button variant="primary">View Performers Acts</Button>
+                            </Link>
+                            <Link to={`/deletePerformer/${performer.id}/${castId}`}>
+                                <Button variant="danger">Delete Cast</Button>
+                            </Link>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+            </div>
+        ))}
         </main>
     )
 }

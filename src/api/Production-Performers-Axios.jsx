@@ -14,17 +14,15 @@ export const getAllPerformersFromRegistry = async () => {
     const jwt = cookies.get("jwt");
     const username = cookies.get("username");
     try {
-        const response = await axios.post(`${productionURL}/performers/registry`,
-            {
-                performerId: 0,
-                username: username
+        const response = await axios.get(`${productionURL}/performers/registry`, {
+            headers: {
+                "Authorization": `Bearer ${jwt}`
             },
-            {
-                headers: {
-                    "Authorization": `Bearer ${jwt}`
-                }
+            params: {
+                performerId: '0',
+                username: username
             }
-        );
+        });
         console.log(response);
         return { success: true, data: response.data };
     } catch (error) {
@@ -36,7 +34,7 @@ export const getAllPerformersFromRegistry = async () => {
 export const getAllCastsPerformers = async (castId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/casts/manifest/${performerId}`, {
+        const response = await axios.get(`${productionURL}/performers/cast/${castId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

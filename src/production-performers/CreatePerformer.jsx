@@ -1,49 +1,53 @@
 import {useEffect, useState} from "react";
 import {useParams, useNavigate} from "react-router-dom";
 import {createPerformer, getAllPerformersFromRegistry} from "../api/Production-Performers-Axios.jsx";
-
+import {Button} from "react-bootstrap";
+import Accordion from "react-bootstrap/Accordion";
 
 
 export default function CreatePerformer() {
 
-    const [performers, setPerformers] = useState({});
+    const [performersFromRegistry, setPerformersFromRegistry] = useState([]);
     const [performerId, setPerformerId] = useState("");
     const navigate = useNavigate();
     const {castId} = useParams();
 
     useEffect(() => {
         getAllPerformersFromRegistry().then((response) => {
-            setPerformers(response.data);
+            setPerformersFromRegistry(response.data);
         }).catch((error) => {
             console.error(error);
         });
     } , [navigate]);
 
-
-    const handleCreate = (e) => {
-        e.preventDefault();
-        console.log(performerId);
-        createPerformer(castId, performerId).then((response) => {
-            console.log(response);
-        }).catch((error) => {
-            console.error(error);
-        });
-    }
+    useEffect(() => {
+        if (performerId !== "") {
+            createPerformer(castId, performerId).then((response) => {
+                console.log(response);
+                navigate("/performersHome/" + castId);
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
+    } , [castId, navigate, performerId]);
 
     return (
         <div>
-            <h1>Create Performer</h1>
-            <form onSubmit={handleCreate}>
-                <select name="performerId" onChange={(e) => setPerformerId(e.target.value)}>
-                    <option value="">Select Performer</option>
-                    {performers.map((performer, index) => (
-                        <option key={index} value={performer.id}>{performer.firstName} {performer.lastName}</option>
-                    ))}
-                </select>
-                <button type="submit">Insert Performer into Production</button>
-            </form>
+            <h1>Performers from Registry</h1>
+            <Accordion>
+                {performersFromRegistry.map((performer, index) => (
+                    <Accordion.Item eventKey={index} key={index}>
+                        <Accordion.Header>{performer.firstName + ' ' + performer.lastName}</Accordion.Header>
+                        <Accordion.Body>
+                            <p>Performer id: {performer.id}</p>
+                            <p>Performer Firstname: {performer.firstName}</p>
+                            <p>Performer Lastname: {performer.lastName}</p>
+                            <Button variant="primary" onClick={() => setPerformerId(performer.id) }>Select Performer</Button>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                ))}
+            </Accordion>
+
         </div>
     )
-
-
 }

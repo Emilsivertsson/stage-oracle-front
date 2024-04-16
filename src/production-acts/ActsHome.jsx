@@ -1,44 +1,44 @@
 import {useState, useEffect} from "react";
-import {getAllManifestCasts} from "../api/Production-Cast-Axios";
+import {getAllPerformerActs} from "../api/Production-Acts-Axios";
 import Accordion from 'react-bootstrap/Accordion';
 import {Link, useParams} from "react-router-dom";
 import {Button} from "react-bootstrap";
 
-export default function CastHome() {
+export default function ActsHome() {
 
-    const [casts, setCasts] = useState([]);
-    const {manifestId} = useParams();
+    const [acts, setActs] = useState([]);
+    const {performerId} = useParams();
 
     useEffect(() => {
-        getAllManifestCasts(manifestId).then((response) => {
-            setCasts(response.data);
+        getAllPerformerActs(performerId).then((response) => {
+            setActs(response.data);
         }).catch((error) => {
             console.error(error);
         });
-    }, [manifestId]);
+    }, [performerId]);
 
 
     return (
-        <main className={'castHome'}>
+        <main className={'actsHome'}>
             <h1>Casts</h1>
-            <Link to={`/createCast/${manifestId}`}>
-                <Button variant="primary">Create new Cast</Button>
+            <Link to={`/createAct/${performerId}`}>
+                <Button variant="primary">Create new Act</Button>
             </Link>
-            {casts.map((cast, index) => (
+            {acts.map((act, index) => (
                 <div key={index}>
                     <Accordion >
                         <Accordion.Item eventKey={index}>
-                            <Accordion.Header>{cast.name}</Accordion.Header>
+                            <Accordion.Header>{act.title}</Accordion.Header>
                             <Accordion.Body>
-                                <p>Cast id: {cast.id}</p>
+                                <p>Act id: {act.id}</p>
 
-                                <Link to={`/performersHome/${cast.id}`}>
-                                    <Button variant="primary">View Casts Performers</Button>
+                                <Link to={`/costumesHome/${act.id}`}>
+                                    <Button variant="primary">View Acts Costumes</Button>
                                 </Link>
-                                <Link to={`/updateCast/${cast.id}/${manifestId}`}>
+                                <Link to={`/updateAct/${act.id}/${performerId}`}>
                                     <Button variant="info">Update Cast</Button>
                                 </Link>
-                                <Link to={`/deleteCast/${cast.id}/${manifestId}`}>
+                                <Link to={`/deleteAct/${act.id}/${performerId}`}>
                                     <Button variant="danger">Delete Cast</Button>
                                 </Link>
                             </Accordion.Body>
