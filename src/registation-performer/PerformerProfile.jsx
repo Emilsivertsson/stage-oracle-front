@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getOnePerformer } from "../api/PerfomerAxios.jsx";
+import { getOnePerformer } from "../api/Perfomer-Axios.jsx";
 
 export default function PerformerProfile() {
     const [performer, setPerformer] = useState({

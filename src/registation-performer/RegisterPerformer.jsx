@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { registerPerformer } from "../api/PerfomerAxios.jsx";
+import { registerPerformer } from "../api/Perfomer-Axios.jsx";
 
 export default function LoginPerformer() {
     const [username, setUsername] = useState("");

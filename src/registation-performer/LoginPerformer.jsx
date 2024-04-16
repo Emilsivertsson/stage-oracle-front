@@ -1,10 +1,10 @@
 
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
-import {loginPerformer} from "../api/PerfomerAxios.jsx";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import {loginPerformer} from "../api/Perfomer-Axios.jsx";
 
 import {Link, useNavigate} from "react-router-dom";
-
 
 
 export default function LoginPerformer() {

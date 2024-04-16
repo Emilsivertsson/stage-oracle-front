@@ -1,20 +1,20 @@
 import React from "react";
-import {deleteAccount} from "../api/PerfomerAxios.jsx";
+import {logoutPerformer} from "../api/Perfomer-Axios.jsx";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 
-export default function DeleteAccount() {
+export default function Logout() {
     const navigate = useNavigate();
 
     const handleDelete = async () => {
-        await deleteAccount();
+        await logoutPerformer();
         navigate("/");
     };
 
     return (
         <div>
-            <h1>Delete Account</h1>
-            <h2>Are you sure you want to delete your account?</h2>
+            <h1>Log out</h1>
+            <h2>Are you sure you want to logout from your account?</h2>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
             <Button variant="primary" onClick={() => navigate("/performerHome")}>No</Button>
         </div>

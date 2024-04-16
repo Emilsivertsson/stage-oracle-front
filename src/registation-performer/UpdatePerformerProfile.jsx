@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {getOnePerformer, updatePerformerProfile} from "../api/PerfomerAxios.jsx";
+import {getOnePerformer, updatePerformerProfile} from "../api/Perfomer-Axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
