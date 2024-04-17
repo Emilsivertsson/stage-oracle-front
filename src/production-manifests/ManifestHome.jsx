@@ -24,6 +24,9 @@ export default function ManifestHome() {
             <Link to={`/createManifest/${productionId}`}>
                 <Button variant="primary">Create new Manifest</Button>
             </Link>
+            <Link to={`/productionHome`}>
+                <Button variant="primary">Back to Productions</Button>
+            </Link>
             {manifests.map((manifest, index) => (
                 <div key={index}>
                     <Accordion >

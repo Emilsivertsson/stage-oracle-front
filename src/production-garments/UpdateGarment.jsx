@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {getOneGarment, updateGarment} from "../api/Production-Garments-Axios";
 import {Form, Button} from "react-bootstrap";
 
@@ -69,6 +69,9 @@ export default function UpdateGarment() {
                     Update Garment
                 </Button>
             </Form>
+            <Link to={"/garmentsHome/" + costumeId}>
+                <Button variant="primary">Back to Garments</Button>
+            </Link>
         </div>
     )
 

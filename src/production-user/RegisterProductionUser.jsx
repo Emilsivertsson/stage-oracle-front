@@ -55,7 +55,7 @@ export default function LoginPerformer() {
     }
 
     return (
-        <>
+        <main-div>
             <h2>Register User for Production</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicUsername">
@@ -98,6 +98,6 @@ export default function LoginPerformer() {
             ) : (
                 <h3>Not Registered, Try again!</h3>
             ))}
-        </>
+        </main-div>
     );
 }

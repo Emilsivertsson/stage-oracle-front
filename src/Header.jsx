@@ -1,31 +1,26 @@
 import React from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Header() {
 
-    const headerStyle = {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: "left",
-        padding: '10px'
-    };
-
     return (
-        <header style={headerStyle}>
-            <img id="logo" src="src/assets/logo.webp" alt="Stage Oracle Logo" width="150" height="150"/>
-            <h1>Stage Oracle</h1>
-
-            <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Menu
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                    <Dropdown.Item href="/">Home</Dropdown.Item>
-                    <Dropdown.Item href="/loginPerformer">Performer login</Dropdown.Item>
-                    <Dropdown.Item href="/loginProduction">Production User login</Dropdown.Item>
-                </Dropdown.Menu>
-                </Dropdown>
-        </header>
+        <Navbar bg="light" expand="lg" className="Navbar">
+            <Container>
+                <img className="header-logo" src={'/src/assets/logo.png'} alt={'Stage Oracle'}/>
+                <Navbar.Brand id={"navbar-h1"} href="/">Stage Oracle</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ml-auto">
+                        <Nav.Link href="/loginPerformer">Performer login</Nav.Link>
+                        <Nav.Link href="/loginProduction">Production User login</Nav.Link>
+                        <Nav.Link href="/">Logout</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }

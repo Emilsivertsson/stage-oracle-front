@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {createPerformer, getAllPerformersFromRegistry} from "../api/Production-Performers-Axios.jsx";
 import {Button} from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
@@ -13,12 +13,12 @@ export default function CreatePerformer() {
     const {castId} = useParams();
 
     useEffect(() => {
-        getAllPerformersFromRegistry().then((response) => {
+        getAllPerformersFromRegistry(castId).then((response) => {
             setPerformersFromRegistry(response.data);
         }).catch((error) => {
             console.error(error);
         });
-    } , [navigate]);
+    } , [castId, navigate]);
 
     useEffect(() => {
         if (performerId !== "") {
@@ -34,6 +34,9 @@ export default function CreatePerformer() {
     return (
         <div>
             <h1>Performers from Registry</h1>
+            <Link to={`/performersHome/${castId}`}>
+                <Button variant="primary">Back to Performers</Button>
+            </Link>
             <Accordion>
                 {performersFromRegistry.map((performer, index) => (
                     <Accordion.Item eventKey={index} key={index}>

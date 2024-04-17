@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {getOneProduction, updateProduction} from "../api/Production-productions-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 
@@ -42,7 +42,7 @@ export default function UpdateProduction() {
     }
 
     return (
-        <div>
+        <main-div>
             <h1>Update Production</h1>
             <Form onSubmit={handleUpdate}>
                 <Form.Group controlId="formBasicTitle">
@@ -87,7 +87,11 @@ export default function UpdateProduction() {
                     Update Production
                 </Button>
             </Form>
-        </div>
+            <Link to={"/productionHome"}>
+                <Button variant="primary">Back to Productions</Button>
+            </Link>
+
+        </main-div>
     )
 
 

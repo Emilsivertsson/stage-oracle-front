@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {getOneAct, updateAct} from "../api/Production-Acts-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 
@@ -61,6 +61,9 @@ export default function UpdateAct() {
                     Update Act
                 </Button>
             </Form>
+            <Link to={`/actsHome/${performerId}`}>
+                <Button variant="primary">Back to Acts</Button>
+            </Link>
         </div>
     )
 

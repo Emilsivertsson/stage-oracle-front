@@ -10,11 +10,11 @@ const productionURL = "http://localhost:8081";
 
 
 
-export const getAllPerformersFromRegistry = async () => {
+export const getAllPerformersFromRegistry = async (castId) => {
     const jwt = cookies.get("jwt");
     const username = cookies.get("username");
     try {
-        const response = await axios.get(`${productionURL}/performers/registry`, {
+        const response = await axios.get(`${productionURL}/performers/registry/${castId}`, {
             headers: {
                 "Authorization": `Bearer ${jwt}`
             },

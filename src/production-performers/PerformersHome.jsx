@@ -22,7 +22,10 @@ export default function PerformersHome() {
         <main className={'performersHome'}>
             <h1>Casts</h1>
             <Link to={`/createPerformer/${castId}`}>
-                <Button variant="primary">Create new Performer</Button>
+                <Button variant="primary">Import Performer</Button>
+            </Link>
+            <Link to={`/castHome/${castId}`}>
+                <Button variant="primary">Back to Casts</Button>
             </Link>
             {performers.map((performer, index) => (
             <div key={index}>
@@ -34,12 +37,11 @@ export default function PerformersHome() {
                             <p>Performer Firstname: {performer.firstName}</p>
                             <p>Performer Lastname: {performer.lastName}</p>
 
-
                             <Link to={`/actsHome/${performer.id}`}>
                                 <Button variant="primary">View Performers Acts</Button>
                             </Link>
                             <Link to={`/deletePerformer/${performer.id}/${castId}`}>
-                                <Button variant="danger">Delete Cast</Button>
+                                <Button variant="danger">Delete Performer</Button>
                             </Link>
                         </Accordion.Body>
                     </Accordion.Item>

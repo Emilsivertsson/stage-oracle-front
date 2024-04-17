@@ -1,9 +1,63 @@
 
 
 body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px;
   background-color: dodgerblue;
 }
 
+.main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
 
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin: 30px;
+    border-radius: 25px;
+
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+
+#home-h1 {
+    font-size: 50px;
+    color: white;
+}
+
+#navbar-h1 {
+    font-size: 30px;
+    color: black;
+}
+
+.header-logo {
+    height: 50px;
+    width: 50px;
+}
+
+.Logo {
+    height: 200px;
+    width: 200px;
+}
+
+button.btn {
+  margin: 2px;
+}
 
 

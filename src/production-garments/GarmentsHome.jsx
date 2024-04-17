@@ -3,7 +3,6 @@ import {getAllCostumesGarments} from "../api/Production-Garments-Axios";
 import Accordion from 'react-bootstrap/Accordion';
 import {Link, useParams} from "react-router-dom";
 import {Button} from "react-bootstrap";
-import {act} from "react-dom/test-utils";
 
 export default function GarmentsHome() {
 
@@ -23,7 +22,10 @@ export default function GarmentsHome() {
         <main className={'garmentsHome'}>
             <h1>Garments</h1>
             <Link to={`/createGarment/${costumeId}`}>
-                <Button variant="primary">Create new Costume</Button>
+                <Button variant="primary">Create new Garment</Button>
+            </Link>
+            <Link to={`/costumesHome/${costumeId}`}>
+                <Button variant="primary">Back to Costumes</Button>
             </Link>
             {garments.map((garment, index) => (
                 <div key={index}>

@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {getOneProductionManifest, updateProductionManifest} from "../api/Production-Manifests-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 
@@ -68,6 +68,9 @@ export default function UpdateManifest() {
                     Update Manifest
                 </Button>
             </Form>
+            <Link to={`/manifestHome/${productionId}`}>
+                <Button variant="primary">Back to Manifests</Button>
+            </Link>
         </div>
     )
 

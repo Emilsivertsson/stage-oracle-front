@@ -22,8 +22,11 @@ export default function CostumesHome() {
     return (
         <main className={'costumesHome'}>
             <h1>Costumes</h1>
-            <Link to={`/createAct/${actId}`}>
+            <Link to={`/createCostume/${actId}`}>
                 <Button variant="primary">Create new Costume</Button>
+            </Link>
+            <Link to={`/actsHome/${actId}`}>
+                <Button variant="primary">Back to Acts</Button>
             </Link>
             {costumes.map((costume, index) => (
                 <div key={index}>

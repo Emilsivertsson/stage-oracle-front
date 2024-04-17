@@ -24,6 +24,9 @@ export default function CastHome() {
             <Link to={`/createCast/${manifestId}`}>
                 <Button variant="primary">Create new Cast</Button>
             </Link>
+            <Link to={`/manifestHome/${manifestId}`}>
+                <Button variant="primary">Back to Manifests</Button>
+            </Link>
             {casts.map((cast, index) => (
                 <div key={index}>
                     <Accordion >

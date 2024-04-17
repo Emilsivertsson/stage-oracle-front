@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {getOneManifestCast, updateManifestCast} from "../api/Production-Cast-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 
@@ -61,6 +61,9 @@ export default function UpdateCast() {
                     Update Cast
                 </Button>
             </Form>
+            <Link to={`/castHome/${manifestId}`}>
+                <Button variant="primary">Back to Cast</Button>
+            </Link>
         </div>
     )
 

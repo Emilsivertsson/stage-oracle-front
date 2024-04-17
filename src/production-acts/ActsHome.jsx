@@ -24,6 +24,9 @@ export default function ActsHome() {
             <Link to={`/createAct/${performerId}`}>
                 <Button variant="primary">Create new Act</Button>
             </Link>
+            <Link to={`/performersHome/${performerId}`}>
+                <Button variant="primary">Back to Performers</Button>
+            </Link>
             {acts.map((act, index) => (
                 <div key={index}>
                     <Accordion >
