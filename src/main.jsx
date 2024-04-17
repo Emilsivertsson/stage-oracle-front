@@ -44,7 +44,12 @@ import GarmentsHome from "./production-garments/GarmentsHome.jsx";
 import CreateGarment from "./production-garments/CreateGarment.jsx";
 import UpdateGarment from "./production-garments/UpdateGarment.jsx";
 import DeleteGarment from "./production-garments/DeleteGarment.jsx";
-
+import AdminRegistrationHome from "./registration-admin/adminRegistrationHome.jsx";
+import UpdateUser from "./registration-admin/adminRegistrationUpdateUser.jsx";
+import AdminRegistrationDeleteUser from "./registration-admin/AdminRegistrationDeleteUser.jsx";
+import AdminProductionHome from "./production-admin/adminProductionHome.jsx";
+import UpdateProductionUser from "./production-admin/adminProductionUpdateUser.jsx";
+import DeleteProductionUser from "./production-admin/AdminProductionDeleteUser.jsx";
 
 const router = createBrowserRouter([
 
@@ -92,6 +97,12 @@ const router = createBrowserRouter([
             { path: '/createGarment/:costumeId', element: <CreateGarment />},
             { path: '/updateGarment/:garmentId/:costumeId', element: <UpdateGarment />},
             { path: '/deleteGarment/:garmentId/:costumeId', element: <DeleteGarment />},
+            { path: '/adminHome', element: <AdminRegistrationHome />},
+            { path: '/updateUser/:userId', element: <UpdateUser />},
+            { path: '/deleteUser/:userId', element: <AdminRegistrationDeleteUser />},
+            { path: '/adminProductionHome', element: <AdminProductionHome />},
+            { path: '/updateProductionUser/:userId', element: <UpdateProductionUser />},
+            { path: '/deleteProductionUser/:userId', element: <DeleteProductionUser />},
             { path: '*', element: <PageNotFound />}
         ]
     }

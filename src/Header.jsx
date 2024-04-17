@@ -4,8 +4,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export default function Header() {
+
+    const handleLogout = () => {
+        cookies.remove("username");
+        cookies.remove("jwt");
+    }
 
     return (
         <Navbar bg="light" expand="lg" className="Navbar">
@@ -17,7 +25,7 @@ export default function Header() {
                     <Nav className="ml-auto">
                         <Nav.Link href="/loginPerformer">Performer login</Nav.Link>
                         <Nav.Link href="/loginProduction">Production User login</Nav.Link>
-                        <Nav.Link href="/">Logout</Nav.Link>
+                        <Nav.Link href="/" onClick={handleLogout}>Logout</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

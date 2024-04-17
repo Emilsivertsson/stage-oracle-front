@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { registerPerformer } from "../api/Perfomer-Axios.jsx";
+import { registerPerformer } from "../api/Registration-Perfomer-Axios.jsx";
 
 export default function LoginPerformer() {
     const [username, setUsername] = useState("");
@@ -56,7 +56,7 @@ export default function LoginPerformer() {
     }
 
     return (
-        <>
+        <main-div>
             <h2>Register Performer</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicUsername">
@@ -107,6 +107,6 @@ export default function LoginPerformer() {
             ) : (
                 <h3>Not Registered, Try again!</h3>
             ))}
-        </>
+        </main-div>
     );
 }

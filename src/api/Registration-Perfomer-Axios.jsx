@@ -6,6 +6,11 @@ const cookies = new Cookies();
 const performerURL = "http://localhost:8080";
 
 
+export const getUserName = () => {
+    return cookies.get("username");
+
+}
+
 export const registerPerformer = async (username, password) => {
     try {
         const response = await axios.post(`${performerURL}/auth/register`, {
@@ -27,7 +32,9 @@ export const loginPerformer = async (username, password) => {
             password: password
         });
         cookies.set("jwt", response.data.jwt, {path: "/"});
+        cookies.set("username", response.data.username, {path: "/"});
         console.log(cookies.get("jwt"));
+        console.log(cookies.get("username"));
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

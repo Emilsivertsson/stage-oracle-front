@@ -1,5 +1,5 @@
 import React from "react";
-import {logoutPerformer} from "../api/Perfomer-Axios.jsx";
+import {logoutPerformer} from "../api/Registration-Perfomer-Axios.jsx";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 

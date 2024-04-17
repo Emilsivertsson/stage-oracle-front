@@ -5,7 +5,10 @@ import Form from 'react-bootstrap/Form';
 import {loginUser} from "../api/Production-User-Axios.jsx";
 
 import {Link, useNavigate} from "react-router-dom";
+import Cookies from "universal-cookie";
 
+const cookies = new Cookies();
+const usernameCookie = cookies.get("username");
 
 export default function LoginUser() {
     const [username, setUsername] = useState("");
@@ -22,7 +25,8 @@ export default function LoginUser() {
             const result = await loginUser(username, password);
             console.log(result);
             if (result.success) {
-                navigate("/productionHome");
+                console.log(cookies.get("username"));
+                navigate(usernameCookie === "admin" ? "/adminProductionHome" : "/productionHome");
             } else {
                 setErrorMessage("Login failed. Please try again.")
                 console.log("Login failed. Please try again.");

@@ -1,5 +1,5 @@
 import React from "react";
-import {deleteAccount} from "../api/Perfomer-Axios.jsx";
+import {deleteAccount} from "../api/Registration-Perfomer-Axios.jsx";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 
