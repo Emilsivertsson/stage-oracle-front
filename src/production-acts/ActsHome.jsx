@@ -20,7 +20,7 @@ export default function ActsHome() {
 
     return (
         <main className={'actsHome'}>
-            <h1>Casts</h1>
+            <h1>Acts</h1>
             <Link to={`/createAct/${performerId}`}>
                 <Button variant="primary">Create new Act</Button>
             </Link>

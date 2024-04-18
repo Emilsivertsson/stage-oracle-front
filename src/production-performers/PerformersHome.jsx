@@ -20,7 +20,7 @@ export default function PerformersHome() {
 
     return (
         <main className={'performersHome'}>
-            <h1>Casts</h1>
+            <h1>Performers</h1>
             <Link to={`/createPerformer/${castId}`}>
                 <Button variant="primary">Import Performer</Button>
             </Link>

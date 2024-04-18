@@ -8,7 +8,7 @@ import {Link, useNavigate} from "react-router-dom";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
-const usernameCookie = cookies.get("username");
+
 
 export default function LoginUser() {
     const [username, setUsername] = useState("");
@@ -72,7 +72,7 @@ export default function LoginUser() {
 
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p>Don't have an account?</p>
-            <Link to="/registerProduction">
+            <Link to="/registerProductionUser">
                 <Button variant="primary" type="submit">
                     Register
                 </Button>

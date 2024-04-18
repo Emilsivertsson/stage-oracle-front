@@ -20,7 +20,7 @@ export const getAllPerformerActs = async (performerId) => {
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
-        return { success: false, message: error.response?.data || error.message || "Get registation-performer failed" };
+        return { success: false, message: error.response?.data || error.message || "Get registration-performer failed" };
     }
 }
 
@@ -37,7 +37,7 @@ export const getOneAct = async (actId) => {
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
-        return { success: false, message: error.response?.data || error.message || "Get registation-performer failed" };
+        return { success: false, message: error.response?.data || error.message || "Get registration-performer failed" };
     }
 }
 
