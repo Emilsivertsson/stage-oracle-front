@@ -25,8 +25,9 @@ export default function LoginUser() {
             const result = await loginUser(username, password);
             console.log(result);
             if (result.success) {
-                console.log(cookies.get("username"));
-                navigate(usernameCookie === "admin" ? "/adminProductionHome" : "/productionHome");
+                const updatedUsernameCookie = cookies.get("username");
+                console.log(updatedUsernameCookie);
+                navigate(updatedUsernameCookie === "admin" ? "/adminProductionHome" : "/productionHome");
             } else {
                 setErrorMessage("Login failed. Please try again.")
                 console.log("Login failed. Please try again.");

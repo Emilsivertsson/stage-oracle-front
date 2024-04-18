@@ -25,8 +25,9 @@ export default function LoginPerformer() {
             const result = await loginPerformer(username, password);
             console.log(result);
             if (result.success) {
-                console.log(cookies.get("username"));
-                navigate(usernameCookie === "admin" ? "/adminHome" : "/performerHome");
+                const updatedUsernameCookie = cookies.get("username");
+                console.log(updatedUsernameCookie);
+                navigate(updatedUsernameCookie === "admin" ? "/adminHome" : "/performerHome");
             } else {
                 setErrorMessage("Login failed. Please try again.")
                 console.log("Login failed. Please try again.");
