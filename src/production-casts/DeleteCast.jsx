@@ -1,16 +1,17 @@
-import React from "react";
+import  {useContext} from "react";
 import {deleteManifestCast} from "../api/Production-Cast-Axios.jsx";
 import {Button} from "react-bootstrap";
-import {useNavigate,useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import AppContext from "../AppContext.jsx";
 
 export default function DeleteCast() {
+
+    const {globalState} = useContext(AppContext);
     const navigate = useNavigate();
-    const {castId} = useParams();
-    const {manifestId} = useParams();
 
     const handleDelete = async () => {
-        await deleteManifestCast(castId);
-        navigate("/castHome/" + manifestId);
+        await deleteManifestCast(globalState.castId);
+        navigate("/castHome" );
     };
 
     return (
@@ -18,7 +19,7 @@ export default function DeleteCast() {
             <h1>Delete Cast</h1>
             <h2>Are you sure you want to delete the Cast?</h2>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
-            <Button variant="primary" onClick={() => navigate("/castHome/" +manifestId)}>No</Button>
+            <Button variant="primary" onClick={() => navigate("/castHome")}>No</Button>
         </div>
     );
 }

@@ -1,16 +1,16 @@
-import {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useContext, useState} from "react";
+import { useNavigate} from "react-router-dom";
 import {createCostume} from "../api/Production-Costumes-Axios";
 import {Form, Button} from "react-bootstrap";
-
+import AppContext from "../AppContext.jsx";
 
 export default function CreateCostume() {
 
+    const {globalState} = useContext(AppContext);
     const [costume, setCostume] = useState({
         name: '',
     });
     const navigate = useNavigate();
-    const {actId} = useParams();
 
     const handleInputChange = (event) => {
         const target = event.target;
@@ -30,9 +30,9 @@ export default function CreateCostume() {
     const handleCreate = (e) => {
         e.preventDefault();
         console.log(costume);
-        createCostume(actId, costume).then((response) => {
+        createCostume(globalState.actId, costume).then((response) => {
             console.log(response);
-            navigate("/costumesHome/" + actId);
+            navigate("/costumesHome");
         }).catch((error) => {
             console.error(error);
         });
@@ -47,6 +47,7 @@ export default function CreateCostume() {
                     <Form.Control type="text"
                                   name="name"
                                   value={costume.name}
+                                  required={true}
                                   onChange={handleInputChange}
                                   placeholder="Enter name"/>
                 </Form.Group>

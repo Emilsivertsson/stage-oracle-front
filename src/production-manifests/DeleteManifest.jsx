@@ -1,16 +1,17 @@
-import React from "react";
+import {useContext} from "react";
 import {deleteProductionManifest} from "../api/Production-Manifests-Axios.jsx";
 import {Button} from "react-bootstrap";
-import {useNavigate,useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import AppContext from "../AppContext.jsx";
 
 export default function DeleteManifest() {
+
+    const {globalState} = useContext(AppContext);
     const navigate = useNavigate();
-    const {manifestId} = useParams();
-    const {productionId} = useParams();
 
     const handleDelete = async () => {
-        await deleteProductionManifest(manifestId);
-        navigate("/manifestHome/" + productionId);
+        await deleteProductionManifest(globalState.manifestId);
+        navigate("/manifestHome");
     };
 
     return (

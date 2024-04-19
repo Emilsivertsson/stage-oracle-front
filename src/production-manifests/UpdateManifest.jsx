@@ -1,22 +1,22 @@
-import {useEffect, useState} from "react";
-import {useParams, useNavigate, Link} from "react-router-dom";
+import {useContext, useEffect, useState} from "react";
+import { useNavigate, Link} from "react-router-dom";
 import {getOneProductionManifest, updateProductionManifest} from "../api/Production-Manifests-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
+import AppContext from "../AppContext.jsx";
 
 export default function UpdateManifest() {
 
+    const {globalState} = useContext(AppContext);
     const [manifest, setManifest] = useState({});
-    const {manifestId} = useParams();
-    const {productionId} = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        getOneProductionManifest(manifestId).then((response) => {
+        getOneProductionManifest(globalState.manifestId).then((response) => {
             setManifest(response.data);
         }).catch((error) => {
             console.error(error);
         });
-    }, [navigate, manifestId]);
+    }, [navigate, globalState.manifestId]);
 
     const handleInputChange = (event) => {
         const target = event.target;
@@ -32,9 +32,9 @@ export default function UpdateManifest() {
     const handleUpdate = (e) => {
         e.preventDefault();
         console.log(manifest);
-        updateProductionManifest(manifestId,manifest).then((response) => {
+        updateProductionManifest(globalState.manifestId,manifest).then((response) => {
             console.log(response);
-            navigate("/manifestHome/" + productionId);
+            navigate("/manifestHome");
         }).catch((error) => {
             console.error(error);
         });
@@ -50,6 +50,7 @@ export default function UpdateManifest() {
                     <Form.Control type="text"
                                   name="title"
                                   value={manifest.title}
+                                  required={true}
                                   onChange={handleInputChange}
                                   placeholder="Enter Title"/>
                 </Form.Group>
@@ -59,6 +60,7 @@ export default function UpdateManifest() {
                     <Form.Control type="text"
                                   name="year"
                                   value={manifest.year}
+                                  required={true}
                                   onChange={handleInputChange}
                                   placeholder="Enter Year"/>
                     </Form.Group>
@@ -68,7 +70,7 @@ export default function UpdateManifest() {
                     Update Manifest
                 </Button>
             </Form>
-            <Link to={`/manifestHome/${productionId}`}>
+            <Link to="/manifestHome">
                 <Button variant="primary">Back to Manifests</Button>
             </Link>
         </div>

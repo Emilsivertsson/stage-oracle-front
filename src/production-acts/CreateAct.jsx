@@ -1,16 +1,17 @@
-import {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useContext, useState} from "react";
+import {useNavigate} from "react-router-dom";
 import {createAct} from "../api/Production-Acts-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
+import AppContext from "../AppContext.jsx";
 
 
 export default function CreateAct() {
 
+    const {globalState} = useContext(AppContext);
     const [act, setAct] = useState({
         title: '',
     });
     const navigate = useNavigate();
-    const {performerId} = useParams();
 
     const handleInputChange = (event) => {
         const target = event.target;
@@ -30,9 +31,9 @@ export default function CreateAct() {
     const handleCreate = (e) => {
         e.preventDefault();
         console.log(act);
-        createAct(performerId, act).then((response) => {
+        createAct(globalState.performerId, act).then((response) => {
             console.log(response);
-            navigate("/actsHome/" + performerId);
+            navigate("/actsHome");
         }).catch((error) => {
             console.error(error);
         });
@@ -47,6 +48,7 @@ export default function CreateAct() {
                     <Form.Control type="text"
                                   name="title"
                                   value={act.name}
+                                  required={true}
                                   onChange={handleInputChange}
                                   placeholder="Enter title"/>
                 </Form.Group>

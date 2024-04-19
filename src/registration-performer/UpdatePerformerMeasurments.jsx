@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getOnePerformer, updatePerformerMeasurements } from "../api/Registration-Perfomer-Axios.jsx"; // Ensure these functions are defined in your API utility
 import {Link, useNavigate} from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
@@ -50,7 +50,7 @@ export default function UpdatePerformerMeasurements() {
                     <Form.Control type="number"
                                     name="height"
                                     value={measurements.measurements.height}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, height: e.target.value}})}
+                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, height: Number(e.target.value)}})}
                                     placeholder="Enter height"/>
                 </Form.Group>
                 <Form.Group controlId="formBasicShoeSize">
@@ -58,7 +58,7 @@ export default function UpdatePerformerMeasurements() {
                     <Form.Control type="number"
                                     name="shoeSize"
                                     value={measurements.measurements.shoeSize}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, shoeSize: e.target.value}})}
+                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, shoeSize: Number(e.target.value)}})}
                                     placeholder="Enter shoe size"/>
                 </Form.Group>
                 <Form.Group controlId="formBasicJacketSize">
@@ -66,7 +66,7 @@ export default function UpdatePerformerMeasurements() {
                     <Form.Control type="number"
                                     name="jacketSize"
                                     value={measurements.measurements.jacketSize}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, jacketSize: e.target.value}})}
+                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, jacketSize: Number(e.target.value)}})}
                                     placeholder="Enter jacket size"/>
                 </Form.Group>
                 <Form.Group controlId="formBasicPantSize">
@@ -74,7 +74,7 @@ export default function UpdatePerformerMeasurements() {
                     <Form.Control type="number"
                                     name="pantSize"
                                     value={measurements.measurements.pantSize}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, pantSize: e.target.value}})}
+                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, pantSize: Number(e.target.value)}})}
                                     placeholder="Enter pant size"/>
                 </Form.Group>
                 <Form.Group controlId="formBasicHead">
@@ -82,7 +82,7 @@ export default function UpdatePerformerMeasurements() {
                     <Form.Control type="number"
                                     name="head"
                                     value={measurements.measurements.head}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, head: e.target.value}})}
+                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, head: Number(e.target.value)}})}
                                     placeholder="Enter head size"/>
                 </Form.Group>
                 <Button variant="primary" type="submit">

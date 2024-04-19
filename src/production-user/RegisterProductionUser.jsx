@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../api/Production-User-Axios.jsx";
@@ -42,7 +42,7 @@ export default function LoginPerformer() {
             const result = await registerUser(username, password);
             if (result.success) {
                 setRegistered(true);
-                navigate("/loginProduction");
+                navigate("/loginProductionUser");
             } else {
                 setPasswordError("Registration failed. Please try again.");
                 setRegistered(false);
@@ -64,6 +64,7 @@ export default function LoginPerformer() {
                         type="username"
                         name="username"
                         value={username}
+                        required={true}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Enter username"
                     />
@@ -75,10 +76,11 @@ export default function LoginPerformer() {
                         type="password"
                         name="password"
                         value={password}
+                        required={true}
                         onChange={handlePasswordChange}
                         placeholder="Enter Password"
                     />
-                    {passwordError && <div className="text-danger">{passwordError}</div>}
+                    {passwordError && <div className="text">{passwordError}</div>}
                 </Form.Group>
 
                 <br/>
@@ -89,7 +91,7 @@ export default function LoginPerformer() {
             </Form>
 
             <p>Already have an account?</p>
-            <Link to="/loginPerformer">
+            <Link to="/loginProductionUser">
                 <Button variant="primary">Login</Button>
             </Link>
 

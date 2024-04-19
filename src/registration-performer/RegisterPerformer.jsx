@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { registerPerformer } from "../api/Registration-Perfomer-Axios.jsx";
@@ -9,7 +9,7 @@ export default function LoginPerformer() {
     const [registered, setRegistered] = useState(false);
     const [buttonClicked, setButtonClicked] = useState(false);
     const [acceptTerms, setAcceptTerms] = useState(false);
-    const [isPasswordCorrect, setIsPasswordCorrect] = useState(false); // Corrected the spelling here
+    const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
     const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
 
@@ -65,6 +65,7 @@ export default function LoginPerformer() {
                         type="username"
                         name="username"
                         value={username}
+                        required={true}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Enter username"
                     />
@@ -76,10 +77,11 @@ export default function LoginPerformer() {
                         type="password"
                         name="password"
                         value={password}
+                        required={true}
                         onChange={handlePasswordChange}
                         placeholder="Enter Password"
                     />
-                    {passwordError && <div className="text-danger">{passwordError}</div>}
+                    {passwordError && <div className="text">{passwordError}</div>}
                 </Form.Group>
 
                 <Form.Group controlId="formBasicCheckbox">

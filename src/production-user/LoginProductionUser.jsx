@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {loginUser} from "../api/Production-User-Axios.jsx";
@@ -48,6 +48,7 @@ export default function LoginUser() {
                     <Form.Control type="Username"
                                   name="username"
                                   value={username}
+                                  required={true}
                                   onChange={(e) => setUsername(e.target.value)}
                                   placeholder="Enter Username"/>
                 </Form.Group>
@@ -57,6 +58,7 @@ export default function LoginUser() {
                     <Form.Control type="password"
                                   name="password"
                                   value={password}
+                                  required={true}
                                   onChange={(e) => setPassword(e.target.value)}
                                   placeholder="Enter Password"/>
                 </Form.Group>

@@ -1,11 +1,14 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import Accordion from 'react-bootstrap/Accordion';
 import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import {getAllUsers} from "../api/Production-Admin-Axios.jsx";
+import AppContext from "../AppContext.jsx";
+
 
 export default function AdminProductionHome() {
 
+    const {globalState,updateGlobalState} = useContext(AppContext);
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -16,6 +19,10 @@ export default function AdminProductionHome() {
         });
     }, []);
 
+    const handleButtonClick = (userId) => {
+        updateGlobalState({...globalState,userId: userId});
+    }
+
 
     return (
         <main className={'adminProductionHome'}>
@@ -23,18 +30,18 @@ export default function AdminProductionHome() {
             {users.map((user, index) => (
             <div key={index}>
                 <Accordion >
-                    <Accordion.Item eventKey={index}>
+                    <Accordion.Item eventKey={index.toString()}>
                         <Accordion.Header>{user.username}</Accordion.Header>
                         <Accordion.Body>
                             <p>User id: {user.userId}</p>
                             <p>Username: {user.username}</p>
                             <p>Password: {user.password}</p>
 
-                            <Link to={`/updateProductionUser/${user.userId}`}>
-                                <Button variant="primary">Update User</Button>
+                            <Link to="/updateProductionUser">
+                                <Button variant="primary" onClick={() => handleButtonClick(user.userId)}>Update User</Button>
                             </Link>
-                            <Link to={`/deleteProductionUser/${user.userId}/`}>
-                                <Button variant="danger">Delete User</Button>
+                            <Link to="/deleteProductionUser">
+                                <Button variant="danger" onClick={() => handleButtonClick(user.userId)}>Delete User</Button>
                             </Link>
                         </Accordion.Body>
                     </Accordion.Item>

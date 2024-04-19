@@ -1,12 +1,15 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import Accordion from 'react-bootstrap/Accordion';
 import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import {getAllUsers} from "../api/Registration-Admin-Axios.jsx";
+import AppContext from "../AppContext.jsx";
 
 export default function AdminRegistrationHome() {
 
+    const {globalState, updateGlobalState} = useContext(AppContext)
     const [users, setUsers] = useState([]);
+
 
     useEffect(() => {
         getAllUsers().then((response) => {
@@ -15,6 +18,11 @@ export default function AdminRegistrationHome() {
             console.error("not getting the users" + error);
         });
     }, []);
+
+    const handleButtonClick = (userId) => {
+        updateGlobalState({...globalState,userId: userId});
+        console.log(globalState.userId);
+    }
 
 
     return (
@@ -30,11 +38,11 @@ export default function AdminRegistrationHome() {
                             <p>Username: {user.username}</p>
                             <p>Password: {user.password}</p>
 
-                            <Link to={`/updateUser/${user.userId}`}>
-                                <Button variant="primary">Update User</Button>
+                            <Link to="/updateUser">
+                                <Button variant="primary" onClick={() => handleButtonClick(user.userId)}>Update User</Button>
                             </Link>
-                            <Link to={`/deleteUser/${user.userId}/`}>
-                                <Button variant="danger">Delete User</Button>
+                            <Link to="/deleteUser">
+                                <Button variant="danger" onClick={() => handleButtonClick(user.userId)}>Delete User</Button>
                             </Link>
                         </Accordion.Body>
                     </Accordion.Item>

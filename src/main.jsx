@@ -1,12 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
+import AppContext from "./AppContext.jsx";
+
 import Home from './Home.jsx'
 import PageNotFound from "./PageNotFound.jsx";
 import Layout from "./Layout.jsx";
-
 import * as PerformerRoutes from "./routes/PerformerRoutes.jsx";
 import * as PerformerAdminRoutes from "./routes/PerformerAdminRoutes.jsx";
 import * as ProductionProductionRoutes from "./routes/ProductionProductionRoutes.jsx";
@@ -18,6 +19,34 @@ import * as ProductionCastRoutes from "./routes/ProductionCastRoutes.jsx";
 import * as ProductionAdminRoutes from "./routes/ProductionAdminRoutes.jsx";
 import * as ProductionPerformerRoutes from "./routes/ProductionPerformerRoutes.jsx";
 import * as ProductionUserRoutes from "./routes/ProductionUserRoutes.jsx";
+
+const initialGlobalState = {
+    username: "",
+    userId: null,
+    productionId: null,
+    manifestId: null,
+    castId: null,
+    performerId: null,
+    actId: null,
+    costumeId: null,
+    garmentId: null,
+};
+
+function Main() {
+
+    const [globalState, setGlobalState] = useState(initialGlobalState);
+    const updateGlobalState = (newState) => {
+        setGlobalState({...globalState, ...newState});
+    }
+
+    return (
+        <AppContext.Provider value={{globalState, updateGlobalState}}>
+            <RouterProvider router={router} />
+        </AppContext.Provider>
+    );
+
+}
+
 const router = createBrowserRouter([
 
     {
@@ -45,6 +74,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Main />
   </React.StrictMode>,
 )

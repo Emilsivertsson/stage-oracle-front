@@ -1,22 +1,25 @@
-import {useEffect, useState} from "react";
-import {useParams, useNavigate, Link} from "react-router-dom";
+import {useContext, useEffect, useState} from "react";
+import {useNavigate, Link} from "react-router-dom";
 import {getOneProduction, updateProduction} from "../api/Production-productions-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
+import AppContext from "../AppContext.jsx";
 
 
 export default function UpdateProduction() {
 
+
+    const {globalState} = useContext(AppContext);
     const [production, setProduction] = useState({});
-    const {productionId} = useParams();
+
     const navigate = useNavigate();
 
     useEffect(() => {
-        getOneProduction(productionId).then((response) => {
+        getOneProduction(globalState.productionId).then((response) => {
             setProduction(response.data);
         }).catch((error) => {
             console.error(error);
         });
-    }, [navigate, productionId]);
+    }, [navigate, globalState.productionId]);
 
     const handleInputChange = (event) => {
         const target = event.target;
@@ -32,7 +35,7 @@ export default function UpdateProduction() {
     const handleUpdate = (e) => {
         e.preventDefault();
         console.log(production);
-        updateProduction(productionId,production).then((response) => {
+        updateProduction(globalState.productionId,production).then((response) => {
             console.log(response);
             navigate("/productionHome");
         }).catch((error) => {
@@ -49,6 +52,7 @@ export default function UpdateProduction() {
                     <Form.Label>Title</Form.Label>
                     <Form.Control type="text"
                                   name="title"
+                                  required={true}
                                   value={production.title}
                                   onChange={handleInputChange}
                                   placeholder="Enter Title"/>
@@ -58,6 +62,7 @@ export default function UpdateProduction() {
                     <Form.Label>Year</Form.Label>
                     <Form.Control type="text"
                                   name="year"
+                                    required={true}
                                   value={production.year}
                                   onChange={handleInputChange}
                                   placeholder="Enter Year"/>
@@ -87,7 +92,7 @@ export default function UpdateProduction() {
                     Update Production
                 </Button>
             </Form>
-            <Link to={"/productionHome"}>
+            <Link to="/productionHome">
                 <Button variant="primary">Back to Productions</Button>
             </Link>
 

@@ -1,47 +1,55 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import {getAllCastsPerformers} from "../api/Production-Performers-Axios";
 import Accordion from 'react-bootstrap/Accordion';
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
+import AppContext from "../AppContext.jsx";
+
 
 export default function PerformersHome() {
 
+
+    const {globalState, updateGlobalState} = useContext(AppContext);
     const [performers, setPerformers] = useState([]);
-    const {castId} = useParams();
+
 
     useEffect(() => {
-        getAllCastsPerformers(castId).then((response) => {
+        getAllCastsPerformers(globalState.castId).then((response) => {
             setPerformers(response.data);
         }).catch((error) => {
             console.error(error);
         });
-    }, [castId]);
+    }, [globalState.castId]);
+
+    const handleButtonClick = (performerId) => {
+        updateGlobalState({...globalState,performerId: performerId});
+    }
 
 
     return (
         <main className={'performersHome'}>
             <h1>Performers</h1>
-            <Link to={`/createPerformer/${castId}`}>
+            <Link to="/createPerformer">
                 <Button variant="primary">Import Performer</Button>
             </Link>
-            <Link to={`/castHome/${castId}`}>
+            <Link to={`/castHome`}>
                 <Button variant="primary">Back to Casts</Button>
             </Link>
             {performers.map((performer, index) => (
             <div key={index}>
                 <Accordion >
-                    <Accordion.Item eventKey={index}>
+                    <Accordion.Item eventKey={index.toString()}>
                         <Accordion.Header>{performer.firstName + ' ' + performer.lastName}</Accordion.Header>
                         <Accordion.Body>
-                            <p>Performer id: {performer.id}</p>
-                            <p>Performer Firstname: {performer.firstName}</p>
-                            <p>Performer Lastname: {performer.lastName}</p>
+                            <p>Id: {performer.id}</p>
+                            <p>Firstname: {performer.firstName}</p>
+                            <p>Lastname: {performer.lastName}</p>
 
-                            <Link to={`/actsHome/${performer.id}`}>
-                                <Button variant="primary">View Performers Acts</Button>
+                            <Link to="/actsHome">
+                                <Button variant="primary" onClick={() => handleButtonClick(performer.id)}>View Acts</Button>
                             </Link>
-                            <Link to={`/deletePerformer/${performer.id}/${castId}`}>
-                                <Button variant="danger">Delete Performer</Button>
+                            <Link to="/deletePerformer">
+                                <Button variant="danger" onClick={() => handleButtonClick(performer.id)}>Delete Performer</Button>
                             </Link>
                         </Accordion.Body>
                     </Accordion.Item>

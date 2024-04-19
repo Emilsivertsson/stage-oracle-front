@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getOnePerformer } from "../api/Registration-Perfomer-Axios.jsx";
 
 export default function PerformerProfile() {
