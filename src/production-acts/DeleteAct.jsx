@@ -1,16 +1,18 @@
-import React from "react";
+import  {useContext} from "react";
 import {deleteAct} from "../api/Production-Acts-Axios.jsx";
 import {Button} from "react-bootstrap";
-import {useNavigate,useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import AppContext from "../AppContext.jsx";
 
 export default function DeleteAct() {
+
+    const {globalState} = useContext(AppContext);
     const navigate = useNavigate();
-    const {actId} = useParams();
-    const {performerId} = useParams();
+
 
     const handleDelete = async () => {
-        await deleteAct(actId);
-        navigate("/actsHome/" + performerId);
+        await deleteAct(globalState.actId);
+        navigate("/actsHome" );
     };
 
     return (
@@ -18,7 +20,7 @@ export default function DeleteAct() {
             <h1>Delete Cast</h1>
             <h2>Are you sure you want to delete the act?</h2>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
-            <Button variant="primary" onClick={() => navigate("/actsHome/" +performerId)}>No</Button>
+            <Button variant="primary" onClick={() => navigate("/actsHome")}>No</Button>
         </div>
     );
 }

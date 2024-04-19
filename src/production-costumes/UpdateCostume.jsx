@@ -1,24 +1,24 @@
-import {useEffect, useState} from "react";
-import {useParams, useNavigate, Link} from "react-router-dom";
+import {useContext, useEffect, useState} from "react";
+import {useNavigate, Link} from "react-router-dom";
 import {getOneCostume, updateCostume} from "../api/Production-Costumes-Axios";
 import {Form, Button} from "react-bootstrap";
+import AppContext from "../AppContext.jsx";
 
 export default function UpdateCostume() {
 
+    const {globalState} = useContext(AppContext);
     const [costume, setCostume] = useState({
         name: '',
     });
-    const {costumeId} = useParams();
-    const {actId} = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        getOneCostume(costumeId).then((response) => {
+        getOneCostume(globalState.costumeId).then((response) => {
             setCostume(response.data);
         }).catch((error) => {
             console.error(error);
         });
-    }, [navigate, costumeId]);
+    }, [navigate, globalState.costumeId]);
 
     const handleInputChange = (event) => {
         const target = event.target;
@@ -34,9 +34,9 @@ export default function UpdateCostume() {
     const handleUpdate = (e) => {
         e.preventDefault();
         console.log(costume);
-        updateCostume(costumeId,costume).then((response) => {
+        updateCostume(globalState.costumeId,costume).then((response) => {
             console.log(response);
-            navigate("/costumesHome/" + actId);
+            navigate("/costumesHome");
         }).catch((error) => {
             console.error(error);
         });
@@ -52,6 +52,7 @@ export default function UpdateCostume() {
                     <Form.Control type="text"
                                   name="name"
                                   value={costume.name}
+                                  required={true}
                                   onChange={handleInputChange}
                                   placeholder="Enter Name"/>
                 </Form.Group>
@@ -61,7 +62,7 @@ export default function UpdateCostume() {
                     Update Costume
                 </Button>
             </Form>
-            <Link to={`/costumesHome/${actId}`}>
+            <Link to={`/costumesHome}`}>
                 <Button variant="primary">Back to Costumes</Button>
             </Link>
         </div>

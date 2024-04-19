@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 
 import RegisterPerformer from "../registration-performer/RegisterPerformer.jsx";
 import LoginPerformer from "../registration-performer/LoginPerformer.jsx";

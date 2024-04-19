@@ -1,14 +1,17 @@
-import React from "react";
+import  {useContext} from "react";
 import {Button} from "react-bootstrap";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {deleteUser} from "../api/Production-Admin-Axios.jsx";
+import AppContext from "../AppContext.jsx";
 
 export default function AdminProductionDeleteUser() {
+
+    const {globalState} = useContext(AppContext);
     const navigate = useNavigate();
-    const {userId} = useParams();
+
 
     const handleDelete = async () => {
-        await deleteUser(userId);
+        await deleteUser(globalState.userId);
         navigate("/adminProductionHome");
     };
 

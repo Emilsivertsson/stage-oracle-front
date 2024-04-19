@@ -1,24 +1,25 @@
-import {useEffect, useState} from "react";
-import {useParams, useNavigate, Link} from "react-router-dom";
+import {useContext, useEffect, useState} from "react";
+import {useNavigate, Link} from "react-router-dom";
 import {Form, Button} from "react-bootstrap";
 import {getOneUser, updateUser} from "../api/Registration-Admin-Axios.jsx";
+import AppContext from "../AppContext.jsx";
 
 export default function UpdateCostume() {
 
+    const {globalState} = useContext(AppContext)
     const [user, setUser] = useState({
         username: '',
         password: '',
     });
-    const {userId} = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        getOneUser(userId).then((response) => {
+        getOneUser(globalState.userId).then((response) => {
             setUser(response.data);
         }).catch((error) => {
             console.error(error);
         });
-    }, [navigate, userId]);
+    }, [navigate, globalState.userId]);
 
     const handleInputChange = (event) => {
         const target = event.target;
@@ -34,7 +35,7 @@ export default function UpdateCostume() {
     const handleUpdate = (e) => {
         e.preventDefault();
         console.log(user);
-        updateUser(userId,user).then((response) => {
+        updateUser(globalState.userId,user).then((response) => {
             console.log(response);
             navigate("/adminHome");
         }).catch((error) => {
@@ -51,6 +52,7 @@ export default function UpdateCostume() {
                     <Form.Control type="text"
                                   name="username"
                                   value={user.username}
+                                  required={true}
                                   onChange={handleInputChange}
                                   placeholder="Enter Username"/>
                 </Form.Group>
@@ -59,6 +61,7 @@ export default function UpdateCostume() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="text"
                                   name="password"
+                                  required={true}
                                   onChange={handleInputChange}
                                   placeholder="Enter new Password"/>
                 </Form.Group>
@@ -68,7 +71,7 @@ export default function UpdateCostume() {
                     Update User
                 </Button>
             </Form>
-            <Link to={`/adminHome`}>
+            <Link to="/adminHome">
                 <Button variant="primary">Back </Button>
             </Link>
         </div>

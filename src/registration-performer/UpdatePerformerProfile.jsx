@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {getOnePerformer, updatePerformerProfile} from "../api/Registration-Perfomer-Axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
@@ -54,6 +54,7 @@ export default function UpdatePerformerProfile() {
                     <Form.Label>First Name</Form.Label>
                     <Form.Control type="text"
                                   name="firstName"
+                                  required={true}
                                   value={performer.firstName}
                                   onChange={(e) => setPerformer({...performer, firstName: e.target.value})}
                                   placeholder="Enter first name"/>
@@ -63,6 +64,7 @@ export default function UpdatePerformerProfile() {
                     <Form.Label>Last Name</Form.Label>
                     <Form.Control type="text"
                                   name="lastName"
+                                  required={true}
                                   value={performer.lastName}
                                   onChange={(e) => setPerformer({...performer, lastName: e.target.value})}
                                   placeholder="Enter last name"/>

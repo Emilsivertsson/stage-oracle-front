@@ -1,8 +1,14 @@
-import React from "react";
+
+import {Link} from "react-router-dom";
+import {Button} from "react-bootstrap";
 
 export default function Terms() {
     return (
         <div>
+            <Link to="/registerPerformer">
+                <Button variant="primary">Back to Register</Button>
+            </Link>
+
             <h1>Terms and Conditions</h1>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p>These terms and conditions ("Terms", "Agreement") govern your use of our website and the services provided ("Service"). This Agreement is between the service operator ("Company", "we", "us", or "our") and you, the user ("User", "you", or "your").</p>

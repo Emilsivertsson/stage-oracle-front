@@ -1,16 +1,17 @@
-import React from "react";
+import {useContext} from "react";
 import {deleteCostume} from "../api/Production-Costumes-Axios.jsx";
 import {Button} from "react-bootstrap";
-import {useNavigate,useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import AppContext from "../AppContext.jsx";
 
 export default function DeleteCostume() {
+
+    const {globalState} = useContext(AppContext);
     const navigate = useNavigate();
-    const {costumeId} = useParams();
-    const {actId} = useParams();
 
     const handleDelete = async () => {
-        await deleteCostume(costumeId);
-        navigate("/costumesHome/" + actId);
+        await deleteCostume(globalState.costumeId);
+        navigate("/costumesHome");
     };
 
     return (
@@ -18,7 +19,7 @@ export default function DeleteCostume() {
             <h1>Delete Costume</h1>
             <h2>Are you sure you want to delete the Costume?</h2>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
-            <Button variant="primary" onClick={() => navigate("/costumesHome/" +actId)}>No</Button>
+            <Button variant="primary" onClick={() => navigate("/costumesHome")}>No</Button>
         </div>
     );
 }

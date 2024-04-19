@@ -1,24 +1,24 @@
-import {useEffect, useState} from "react";
-import {useParams, useNavigate, Link} from "react-router-dom";
+import {useContext, useEffect, useState} from "react";
+import { useNavigate, Link} from "react-router-dom";
 import {getOneManifestCast, updateManifestCast} from "../api/Production-Cast-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
+import AppContext from "../AppContext.jsx";
 
 export default function UpdateCast() {
 
+    const {globalState} = useContext(AppContext);
     const [cast, setCast] = useState({
         name: '',
     });
-    const {castId} = useParams();
-    const {manifestId} = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        getOneManifestCast(castId).then((response) => {
+        getOneManifestCast(globalState.castId).then((response) => {
             setCast(response.data);
         }).catch((error) => {
             console.error(error);
         });
-    }, [navigate, castId]);
+    }, [navigate, globalState.castId]);
 
     const handleInputChange = (event) => {
         const target = event.target;
@@ -34,9 +34,9 @@ export default function UpdateCast() {
     const handleUpdate = (e) => {
         e.preventDefault();
         console.log(cast);
-        updateManifestCast(castId,cast).then((response) => {
+        updateManifestCast(globalState.castId,cast).then((response) => {
             console.log(response);
-            navigate("/castHome/" + manifestId);
+            navigate("/castHome");
         }).catch((error) => {
             console.error(error);
         });
@@ -52,6 +52,7 @@ export default function UpdateCast() {
                     <Form.Control type="text"
                                   name="name"
                                   value={cast.name}
+                                  required={true}
                                   onChange={handleInputChange}
                                   placeholder="Enter Name"/>
                 </Form.Group>
@@ -61,7 +62,7 @@ export default function UpdateCast() {
                     Update Cast
                 </Button>
             </Form>
-            <Link to={`/castHome/${manifestId}`}>
+            <Link to="/castHome">
                 <Button variant="primary">Back to Cast</Button>
             </Link>
         </div>

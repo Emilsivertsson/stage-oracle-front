@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import {createProduction} from "../api/Production-productions-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 
@@ -27,6 +27,9 @@ export default function CreateProduction() {
     const handleCreate = (e) => {
         e.preventDefault();
         console.log(production);
+        if(production.inRotation === undefined){
+            production.inRotation = false;
+        }
         createProduction(production).then((response) => {
             console.log(response);
             navigate("/productionHome");
@@ -44,6 +47,7 @@ export default function CreateProduction() {
                     <Form.Label>Title</Form.Label>
                     <Form.Control type="text"
                                   name="title"
+                                  required={true}
                                   value={production.title}
                                   onChange={handleInputChange}
                                   placeholder="Enter Title"/>
@@ -53,6 +57,7 @@ export default function CreateProduction() {
                     <Form.Label>Year</Form.Label>
                     <Form.Control type="text"
                                   name="year"
+                                  required={true}
                                   value={production.year}
                                   onChange={handleInputChange}
                                   placeholder="Enter Year"/>

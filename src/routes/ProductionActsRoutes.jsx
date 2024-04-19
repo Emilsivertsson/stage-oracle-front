@@ -5,8 +5,8 @@ import UpdateAct from "../production-acts/UpdateAct.jsx";
 import CreateAct from "../production-acts/CreateAct.jsx";
 
 export const routes = [
-    { path: '/actsHome/:performerId', element: <ActsHome />},
-    { path: '/deleteAct/:actId/:performerId', element: <DeleteAct />},
-    { path: '/updateAct/:actId/:performerId', element: <UpdateAct />},
-    { path: '/createAct/:performerId', element: <CreateAct />},
+    { path: '/actsHome', element: <ActsHome />},
+    { path: '/deleteAct', element: <DeleteAct />},
+    { path: '/updateAct', element: <UpdateAct />},
+    { path: '/createAct', element: <CreateAct />},
 ];
