@@ -35,7 +35,7 @@ export default function GarmentsHome() {
             </Link>
             {garments.map((garment, index) => (
                 <div key={index}>
-                    <Accordion >
+                    <Accordion className="accordion-fixed-width" >
                         <Accordion.Item eventKey={index.toString()}>
                             <Accordion.Header>{garment.name}</Accordion.Header>
                             <Accordion.Body>

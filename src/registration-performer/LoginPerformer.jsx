@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {loginPerformer} from "../api/Registration-Perfomer-Axios.jsx";
+import {getOnePerformer, loginPerformer} from "../api/Registration-Perfomer-Axios.jsx";
 import Cookies from 'universal-cookie';
 
 import {Link, useNavigate} from "react-router-dom";
@@ -24,7 +24,18 @@ export default function LoginPerformer() {
             const result = await loginPerformer(username, password);
             if (result.success) {
                 const updatedUsernameCookie = cookies.get("username");
-                navigate(updatedUsernameCookie === "admin" ? "/adminHome" : "/performerHome");
+                if(updatedUsernameCookie === "admin") {
+                    navigate("/adminHome");
+                } else {
+                    const performerLoggedIn = await getOnePerformer();
+                    if(performerLoggedIn.data.firstName !== "" && performerLoggedIn.data.firstName !== null) {
+                        navigate("/performerHome");
+                    } else {
+                        navigate("/profileUpdate");
+                }
+            }
+
+
             } else {
                 setErrorMessage("Login failed. Please try again.")
                 console.log("Login failed. Please try again.");

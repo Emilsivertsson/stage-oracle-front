@@ -30,7 +30,7 @@ export default function AdminRegistrationHome() {
             <h1>Users</h1>
             {users.map((user, index) => (
             <div key={index}>
-                <Accordion >
+                <Accordion className="accordion-fixed-width" >
                     <Accordion.Item eventKey={index}>
                         <Accordion.Header>{user.username}</Accordion.Header>
                         <Accordion.Body>

@@ -34,7 +34,7 @@ export default function ManifestHome() {
             </Link>
             {manifests.map((manifest, index) => (
                 <div key={index}>
-                    <Accordion >
+                    <Accordion className="accordion-fixed-width" >
                         <Accordion.Item eventKey={index.toString()}>
                             <Accordion.Header>{manifest.title}</Accordion.Header>
                             <Accordion.Body>

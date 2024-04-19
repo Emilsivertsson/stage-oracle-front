@@ -32,7 +32,7 @@ export default function ProductionHome() {
             </Link>
             {productions.map((production, index) => (
                 <div key={index}>
-                    <Accordion >
+                    <Accordion className="accordion-fixed-width" >
                         <Accordion.Item eventKey={index.toString()}>
                             <Accordion.Header>{production.title}</Accordion.Header>
                             <Accordion.Body>

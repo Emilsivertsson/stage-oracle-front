@@ -34,7 +34,7 @@ export default function ActsHome() {
             </Link>
             {acts.map((act, index) => (
                 <div key={index}>
-                    <Accordion >
+                    <Accordion className="accordion-fixed-width" >
                         <Accordion.Item eventKey={index.toString()}>
                             <Accordion.Header>{act.title}</Accordion.Header>
                             <Accordion.Body>

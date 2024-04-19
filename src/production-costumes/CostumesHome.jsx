@@ -34,7 +34,7 @@ export default function CostumesHome() {
             </Link>
             {costumes.map((costume, index) => (
                 <div key={index}>
-                    <Accordion >
+                    <Accordion className="accordion-fixed-width" >
                         <Accordion.Item eventKey={index.toString()}>
                             <Accordion.Header>{costume.name}</Accordion.Header>
                             <Accordion.Body>

@@ -18,10 +18,6 @@ export default function CreateCast() {
         let value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
-        if (name === 'year') {
-            value = Number(value);
-        }
-
         setCast({
             ...cast,
             [name]: value

@@ -37,7 +37,7 @@ export default function PerformersHome() {
             </Link>
             {performers.map((performer, index) => (
             <div key={index}>
-                <Accordion >
+                <Accordion className="accordion-fixed-width" >
                     <Accordion.Item eventKey={index.toString()}>
                         <Accordion.Header>{performer.firstName + ' ' + performer.lastName}</Accordion.Header>
                         <Accordion.Body>

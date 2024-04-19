@@ -34,7 +34,7 @@ export default function CastHome() {
             </Link>
             {casts.map((cast, index) => (
                 <div key={index}>
-                    <Accordion >
+                    <Accordion className="accordion-fixed-width">
                         <Accordion.Item eventKey={index.to}>
                             <Accordion.Header>{cast.name}</Accordion.Header>
                             <Accordion.Body>

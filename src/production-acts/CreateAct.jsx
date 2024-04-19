@@ -18,10 +18,6 @@ export default function CreateAct() {
         let value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
-        if (name === 'year') {
-            value = Number(value);
-        }
-
         setAct({
             ...act,
             [name]: value
