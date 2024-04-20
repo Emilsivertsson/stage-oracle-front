@@ -6,7 +6,6 @@ import {Button} from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
 import AppContext from "../AppContext.jsx";
 
-
 export default function CreatePerformer() {
 
     const {globalState} = useContext(AppContext);

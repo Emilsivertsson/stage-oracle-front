@@ -38,7 +38,7 @@ export default function ProductionHome() {
                             <Accordion.Body>
                                 <p>Production id: {production.id}</p>
                                 <p>Production year:{production.year}</p>
-                                <p>In Rotation: {production.inRotation}</p>
+                                <p>In Rotation: {production.inRotation.toString()}</p>
                                 <p>Description: {production.description}</p>
 
                                 <Link to="/manifestHome">
