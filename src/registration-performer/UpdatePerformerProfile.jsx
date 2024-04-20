@@ -21,6 +21,7 @@ export default function UpdatePerformerProfile() {
     async function handleSubmit (e) {
         e.preventDefault();
         setCorrectInput(true)
+        console.log(performer);
 
         try {
             const result = await updatePerformerProfile(performer)
@@ -49,7 +50,7 @@ export default function UpdatePerformerProfile() {
     return (
         <div>
             <h1 className="text-center">Performer Profile Update</h1>
-            <Form onSubmit={(e) => handleSubmit(e)}>
+            <Form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group controlId="formBasicFirstName">
                     <Form.Label>First Name</Form.Label>
                     <Form.Control type="text"

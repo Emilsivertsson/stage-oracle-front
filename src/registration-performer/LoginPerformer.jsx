@@ -50,7 +50,7 @@ export default function LoginPerformer() {
         <main-div>
             <h2>Login Performer</h2>
             <br/>
-            <Form onSubmit={(e) => handleSubmit(e)}>
+            <Form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
                     <Form.Control type="Username"

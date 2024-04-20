@@ -38,7 +38,7 @@ export default function CreateCostume() {
     return (
         <div>
             <h1>Create Garment</h1>
-            <Form onSubmit={handleCreate}>
+            <Form className="form" onSubmit={handleCreate}>
                 <Form.Group controlId="formBasicTitle">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text"

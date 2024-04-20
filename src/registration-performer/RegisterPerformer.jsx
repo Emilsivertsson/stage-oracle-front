@@ -26,6 +26,7 @@ export default function LoginPerformer() {
             setPasswordError("");
         } else {
             setIsPasswordCorrect(false);
+
             setPasswordError("Password must be at least 8 characters long and include at least one letter and one number.");
         }
     };
@@ -58,7 +59,7 @@ export default function LoginPerformer() {
     return (
         <main-div>
             <h2>Register Performer</h2>
-            <Form onSubmit={handleSubmit}>
+            <Form className="form" onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
                     <Form.Control

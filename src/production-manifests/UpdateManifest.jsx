@@ -44,7 +44,7 @@ export default function UpdateManifest() {
     return (
         <div>
             <h1>Update Manifest</h1>
-            <Form onSubmit={handleUpdate}>
+            <Form className="form" onSubmit={handleUpdate}>
                 <Form.Group controlId="formBasicTitle">
                     <Form.Label>Title</Form.Label>
                     <Form.Control type="text"

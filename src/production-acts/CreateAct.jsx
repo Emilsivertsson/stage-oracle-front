@@ -38,7 +38,7 @@ export default function CreateAct() {
     return (
         <div>
             <h1>Create Act</h1>
-            <Form onSubmit={handleCreate}>
+            <Form className="form" onSubmit={handleCreate}>
                 <Form.Group controlId="formBasicTitle">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text"

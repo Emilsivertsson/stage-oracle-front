@@ -47,7 +47,7 @@ export default function UpdateProduction() {
     return (
         <main-div>
             <h1>Update Production</h1>
-            <Form onSubmit={handleUpdate}>
+            <Form className="form" onSubmit={handleUpdate}>
                 <Form.Group controlId="formBasicTitle">
                     <Form.Label>Title</Form.Label>
                     <Form.Control type="text"

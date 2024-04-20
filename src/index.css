@@ -31,6 +31,10 @@ body {
     text-align: center;
 }
 
+.form {
+    width:450px;
+}
+
 .accordion-fixed-width {
     width: 450px;
 }

@@ -44,7 +44,7 @@ export default function UpdatePerformerMeasurements() {
     return (
         <div>
             <h1 className="text-center">Update Measurements</h1>
-            <Form onSubmit={(e) => handleSubmit(e)}>
+            <Form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group controlId="formBasicHeight">
                     <Form.Label>Height</Form.Label>
                     <Form.Control type="number"

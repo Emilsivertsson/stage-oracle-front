@@ -41,7 +41,7 @@ export default function LoginUser() {
         <main-div>
             <h2>Login Production User</h2>
             <br/>
-            <Form onSubmit={(e) => handleSubmit(e)}>
+            <Form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
                     <Form.Control type="Username"

@@ -42,7 +42,7 @@ export default function CreateProduction() {
     return (
         <div>
             <h1>Create Production</h1>
-            <Form onSubmit={handleCreate}>
+            <Form className="form" onSubmit={handleCreate}>
                 <Form.Group controlId="formBasicTitle">
                     <Form.Label>Title</Form.Label>
                     <Form.Control type="text"

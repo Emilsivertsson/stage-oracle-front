@@ -46,7 +46,7 @@ export default function UpdateCostume() {
     return (
         <div>
             <h1>Update Costume</h1>
-            <Form onSubmit={handleUpdate}>
+            <Form className="form" onSubmit={handleUpdate}>
                 <Form.Group controlId="formBasicTitle">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text"

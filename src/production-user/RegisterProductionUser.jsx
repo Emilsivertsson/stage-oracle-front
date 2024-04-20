@@ -57,7 +57,7 @@ export default function LoginPerformer() {
     return (
         <main-div>
             <h2>Register User for Production</h2>
-            <Form onSubmit={handleSubmit}>
+            <Form className="form" onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
                     <Form.Control
