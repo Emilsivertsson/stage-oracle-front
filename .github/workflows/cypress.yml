@@ -20,9 +20,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKHUB_TOKEN }}
 
-      - name: Build and push the registration-service Docker image
+      - name: Build and push the so-front Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./registration-service
+          context: .
           push: true
           tags: wexio/so-front:latest
