@@ -13,3 +13,16 @@ jobs:
           build: npm run build
           start: npm start
           browser: chrome
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKHUB_TOKEN }}
+
+      - name: Build and push the registration-service Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./registration-service
+          push: true
+          tags: wexio/so-front:latest
