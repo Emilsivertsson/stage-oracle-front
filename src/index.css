@@ -68,4 +68,18 @@ button.btn {
   margin: 2px;
 }
 
+.breadcrumb-item a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.breadcrumb-item a:link {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 35px;
+    color: white;
+}
+
 

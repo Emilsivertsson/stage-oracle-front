@@ -4,6 +4,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 export default function ActsHome() {
 
@@ -26,6 +27,14 @@ export default function ActsHome() {
     return (
         <main className={'actsHome'}>
             <h1>Acts</h1>
+            <Breadcrumb>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Home</Breadcrumb.Item>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/productionHome" }}>Productions</Breadcrumb.Item>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/manifestHome" }}>Manifests</Breadcrumb.Item>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/castHome" }}>Casts</Breadcrumb.Item>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/performersHome" }}>Performers</Breadcrumb.Item>
+                <Breadcrumb.Item active>Acts</Breadcrumb.Item>
+            </Breadcrumb>
             <Link to="/createAct">
                 <Button variant="primary">Create new Act</Button>
             </Link>

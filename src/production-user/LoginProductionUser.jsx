@@ -39,7 +39,7 @@ export default function LoginUser() {
 
     return (
         <main-div>
-            <h2>Login Production User</h2>
+            <h1>Login Production User</h1>
             <br/>
             <Form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group controlId="formBasicUsername">

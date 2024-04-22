@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import PerformerModal from "./PerformerModal.jsx";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 export default function PerformersHome() {
 
@@ -30,7 +31,15 @@ export default function PerformersHome() {
 
     return (
         <main className={'performersHome'}>
+
             <h1>Performers</h1>
+            <Breadcrumb>
+                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                <Breadcrumb.Item href="/productionHome">Productions</Breadcrumb.Item>
+                <Breadcrumb.Item href="/manifestHome">Manifests</Breadcrumb.Item>
+                <Breadcrumb.Item href="/castHome">Casts</Breadcrumb.Item>
+                <Breadcrumb.Item active>Performers</Breadcrumb.Item>
+            </Breadcrumb>
             <Link to="/createPerformer">
                 <Button variant="primary">Import Performer</Button>
             </Link>

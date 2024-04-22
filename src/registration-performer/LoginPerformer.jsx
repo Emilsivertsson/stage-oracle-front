@@ -48,7 +48,7 @@ export default function LoginPerformer() {
 
     return (
         <main-div>
-            <h2>Login Performer</h2>
+            <h1>Login Performer</h1>
             <br/>
             <Form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group controlId="formBasicUsername">

@@ -1,5 +1,6 @@
 import {useEffect, useState, useContext} from "react";
 import {getAllProductions} from "../api/Production-productions-Axios.jsx";
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Accordion from 'react-bootstrap/Accordion';
 import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
@@ -26,7 +27,14 @@ export default function ProductionHome() {
 
     return (
         <main className={'productionHome'}>
+
+
             <h1>All Productions</h1>
+            <Breadcrumb>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Home</Breadcrumb.Item>
+                <Breadcrumb.Item active>Productions</Breadcrumb.Item>
+            </Breadcrumb>
+
             <Link to="/createProduction">
                 <Button variant="primary">Register Production</Button>
             </Link>

@@ -4,6 +4,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 export default function CastHome() {
 
@@ -26,6 +27,12 @@ export default function CastHome() {
     return (
         <main className={'castHome'}>
             <h1>Casts</h1>
+            <Breadcrumb>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Home</Breadcrumb.Item>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/productionHome" }}>Productions</Breadcrumb.Item>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/manifestHome" }}>Manifests</Breadcrumb.Item>
+                <Breadcrumb.Item active>Casts</Breadcrumb.Item>
+            </Breadcrumb>
             <Link to="/createCast">
                 <Button variant="primary">Create new Cast</Button>
             </Link>

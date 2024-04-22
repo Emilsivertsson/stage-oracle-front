@@ -5,7 +5,7 @@ export default function PageNotFound() {
     return (
         <div>
             <h1 className="text-center">Page Not Found</h1>
-            <p>The page you are looking for does not exist</p>
+            <p>The page you are looking for does not exist or you might not be logged in correctly</p>
             <Link to="/">Go Home</Link>
         </div>
     );
