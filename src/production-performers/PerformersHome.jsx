@@ -4,13 +4,15 @@ import Accordion from 'react-bootstrap/Accordion';
 import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
-
+import PerformerModal from "./PerformerModal.jsx";
 
 export default function PerformersHome() {
 
 
     const {globalState, updateGlobalState} = useContext(AppContext);
     const [performers, setPerformers] = useState([]);
+    const [show, setShow] = useState(false);
+    const [selectedPerformer, setSelectedPerformer] = useState(null);
 
 
     useEffect(() => {
@@ -48,6 +50,11 @@ export default function PerformersHome() {
                             <Link to="/actsHome">
                                 <Button variant="primary" onClick={() => handleButtonClick(performer.id)}>View Acts</Button>
                             </Link>
+                            <Button variant="primary" onClick={() => {
+                                setShow(true);
+                                setSelectedPerformer(performer);
+                            }}>Select show info</Button>
+                            <PerformerModal show={show} onHide={() => setShow(false)} selectedPerformer={selectedPerformer}/>
                             <Link to="/deletePerformer">
                                 <Button variant="danger" onClick={() => handleButtonClick(performer.id)}>Delete Performer</Button>
                             </Link>
