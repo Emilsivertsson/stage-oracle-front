@@ -15,12 +15,15 @@ I wanted to create a front-end that is easy to use and that looks good, using Re
 
 ### Installation
 To install the project, you need to have npm and node installed. \
-Then you can clone the project and run the following command in the terminal to install the dependencies.
+Then you can clone the project and run the following commands in the terminal to install the dependencies. \
+please note that you must be in the root folder of the project.
 
 ```sh
 npm install
 npm run dev
 ```
+
+
 The app will be running on localhost:3000
 
 ## Usage
