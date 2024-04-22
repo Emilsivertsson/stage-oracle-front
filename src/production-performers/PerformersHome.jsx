@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import PerformerModal from "./PerformerModal.jsx";
+import PerformerEmail from "./PerformerEmail.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 export default function PerformersHome() {
@@ -12,8 +13,10 @@ export default function PerformersHome() {
 
     const {globalState, updateGlobalState} = useContext(AppContext);
     const [performers, setPerformers] = useState([]);
-    const [show, setShow] = useState(false);
-    const [selectedPerformer, setSelectedPerformer] = useState(null);
+    const [showInfo, setShowInfo] = useState(false);
+    const [selectedPerformerInfo, setSelectedPerformerInfo] = useState(null);
+    const [showEmail, setShowEmail] = useState(false);
+    const [selectedPerformerEmail, setSelectedPerformerEmail] = useState(null);
 
 
     useEffect(() => {
@@ -59,11 +62,18 @@ export default function PerformersHome() {
                             <Link to="/actsHome">
                                 <Button variant="primary" onClick={() => handleButtonClick(performer.id)}>View Acts</Button>
                             </Link>
-                            <Button variant="primary" onClick={() => {
-                                setShow(true);
-                                setSelectedPerformer(performer);
-                            }}>Select show info</Button>
-                            <PerformerModal show={show} onHide={() => setShow(false)} selectedPerformer={selectedPerformer}/>
+                            <Button variant="success" onClick={() => {
+                                setShowInfo(true);
+                                setSelectedPerformerInfo(performer);
+                            }}>Show Performer info</Button>
+                            <PerformerModal show={showInfo} onHide={() => setShowInfo(false)} selectedPerformer={selectedPerformerInfo}/>
+
+                            <Button variant={"success"} onClick={() => {
+                                setShowEmail(true);
+                                setSelectedPerformerEmail(performer);
+                            }}>{'\uD83D\uDCE7'} Send Email</Button>
+                            <PerformerEmail show={showEmail} onHide={() => setShowEmail(false)} selectedPerformer={selectedPerformerEmail}/>
+
                             <Link to="/deletePerformer">
                                 <Button variant="danger" onClick={() => handleButtonClick(performer.id)}>Delete Performer</Button>
                             </Link>
