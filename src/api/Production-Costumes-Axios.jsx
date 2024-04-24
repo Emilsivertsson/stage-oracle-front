@@ -5,7 +5,7 @@ import {getJWT} from "./Production-User-Axios.jsx";
 const cookies = new Cookies();
 cookies.set("JWT", getJWT(), {path: "/"});
 
-const productionURL = "http://localhost:8081";
+const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 
 export const getAllActsCostumes = async (actId) => {
     const jwt = cookies.get("jwt");

@@ -3,7 +3,7 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-const productionURL = "http://localhost:8081";
+const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 
 export const getJWT = () => {
     return cookies.get("jwt");

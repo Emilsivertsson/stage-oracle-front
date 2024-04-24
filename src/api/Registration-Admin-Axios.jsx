@@ -4,12 +4,12 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 
-const performerURL = "http://localhost:8080";
+const registrationURL = import.meta.env.VITE_REGISTRATION_API_URL;
 
 export const getOneUser = async (userId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${performerURL}/admin/${userId}`, {
+        const response = await axios.get(`${registrationURL}/admin/${userId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -26,7 +26,7 @@ export const getOneUser = async (userId) => {
 export const getAllUsers = async () => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${performerURL}/admin/`, {
+        const response = await axios.get(`${registrationURL}/admin/`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -43,7 +43,7 @@ export const getAllUsers = async () => {
 export const updateUser = async (userId, user) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${performerURL}/admin/${userId}`, user, {
+        const response = await axios.put(`${registrationURL}/admin/${userId}`, user, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -60,7 +60,7 @@ export const updateUser = async (userId, user) => {
 export const deleteUser = async (userId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${performerURL}/admin/${userId}`, {
+        const response = await axios.delete(`${registrationURL}/admin/${userId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

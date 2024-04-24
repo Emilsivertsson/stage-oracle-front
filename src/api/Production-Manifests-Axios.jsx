@@ -6,7 +6,7 @@ const cookies = new Cookies();
 cookies.set("JWT", getJWT(), {path: "/"});
 
 
-const productionURL = "http://localhost:8081";
+const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 
 export const getProductionsManifests = async (ProductionId) => {
     const jwt = cookies.get("jwt");
