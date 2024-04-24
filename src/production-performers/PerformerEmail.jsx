@@ -1,10 +1,13 @@
 import Modal from 'react-bootstrap/Modal';
 import {Button, Form} from "react-bootstrap";
 import {sendEmail} from "../api/Production-Email-Axios.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 export default function PerformerEmail({ show, onHide, selectedPerformer }) {
-
+    
+    
+    const navigate = useNavigate();
     const [email, setEmail] = useState({
         adress: '',
         subject: '',
@@ -26,6 +29,7 @@ export default function PerformerEmail({ show, onHide, selectedPerformer }) {
         e.preventDefault();
         console.log(email);
         email.adress = selectedPerformer.email;
+        
         const response = await sendEmail(email);
         if (response.success) {
             console.log(response.data);

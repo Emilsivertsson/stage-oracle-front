@@ -17,7 +17,7 @@ export default function PerformersHome() {
     const [selectedPerformerInfo, setSelectedPerformerInfo] = useState(null);
     const [showEmail, setShowEmail] = useState(false);
     const [selectedPerformerEmail, setSelectedPerformerEmail] = useState(null);
-
+    const [hasEmail, setHasEmail] = useState(false);
 
     useEffect(() => {
         getAllCastsPerformers(globalState.castId).then((response) => {
@@ -68,7 +68,7 @@ export default function PerformersHome() {
                             }}>Show Performer info</Button>
                             <PerformerModal show={showInfo} onHide={() => setShowInfo(false)} selectedPerformer={selectedPerformerInfo}/>
 
-                            <Button variant={"success"} onClick={() => {
+                            <Button id="emailbutton" variant={"success"} disabled={!performer.email} onClick={() => {
                                 setShowEmail(true);
                                 setSelectedPerformerEmail(performer);
                             }}>{'\uD83D\uDCE7'} Send Email</Button>
