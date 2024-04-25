@@ -1,5 +1,5 @@
 import {useContext, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {createGarment} from "../api/Production-Garments-Axios";
 import {Form, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
@@ -9,6 +9,8 @@ export default function CreateCostume() {
     const {globalState} = useContext(AppContext);
     const [garment, setGarment] = useState({
         name: '',
+        description: '',
+        isDone: false,
     });
     const navigate = useNavigate();
 
@@ -58,11 +60,23 @@ export default function CreateCostume() {
                                   placeholder="Enter Description"/>
                 </Form.Group>
 
+                <Form.Group controlId="formBasicTitle">
+                    <Form.Label>Is Done</Form.Label>
+                    <Form.Control type="checkbox"
+                                  name="isDone"
+                                  value={garment.isDone}
+                                  onChange={handleInputChange}
+                                  placeholder="Is the Garment Done?"/>
+                </Form.Group>
+
                 <br/>
                 <Button variant="primary" type="submit">
-                    Create Costume
+                    Create Garment
                 </Button>
             </Form>
+            <Link to="/garmentsHome">
+                <Button variant="primary">Back</Button>
+            </Link>
         </div>
     )
 

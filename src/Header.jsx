@@ -17,7 +17,7 @@ export default function Header() {
     return (
         <Navbar bg="light" expand="lg" className="Navbar">
             <Container>
-                <img className="header-logo" src={headerLogo} alt={'Stage Oracle'}/>
+                <img className="header-logo" src={headerLogo} alt={'Stage Oracle'} />
                 <Navbar.Brand id={"navbar-h1"} href="/">Stage Oracle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">

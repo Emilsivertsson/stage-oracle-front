@@ -7,9 +7,7 @@ import AppContext from "../AppContext.jsx";
 export default function UpdateGarment() {
 
     const {globalState} = useContext(AppContext);
-    const [garment, setGarment] = useState({
-        name: '',
-    });
+    const [garment, setGarment] = useState({});
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -56,6 +54,7 @@ export default function UpdateGarment() {
                                   onChange={handleInputChange}
                                   placeholder="Enter Name"/>
                 </Form.Group>
+                <br/>
 
                 <Form.Group controlId="formBasicTitle">
                     <Form.Label>Description</Form.Label>
@@ -65,6 +64,19 @@ export default function UpdateGarment() {
                                   onChange={handleInputChange}
                                   placeholder="Enter Description"/>
                 </Form.Group>
+
+                <br/>
+
+                <Form.Group controlId="formBasicInRotation">
+                    <Form.Check
+                        type="checkbox"
+                        name="isDone"
+                        checked={garment.isDone}
+                        onChange={handleInputChange}
+                        label="Is it Done?"
+                    />
+                </Form.Group>
+
                 <br/>
                 <Button variant="primary" type="submit">
                     Update Garment

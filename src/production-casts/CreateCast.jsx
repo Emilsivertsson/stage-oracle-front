@@ -1,5 +1,5 @@
 import {useContext, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {createManifestCast} from "../api/Production-Cast-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
@@ -52,6 +52,9 @@ export default function CreateCast() {
                 <Button variant="primary" type="submit">
                     Create Cast
                 </Button>
+                <Link to="/castHome">
+                    <Button variant="primary">Back</Button>
+                </Link>
             </Form>
         </div>
     )

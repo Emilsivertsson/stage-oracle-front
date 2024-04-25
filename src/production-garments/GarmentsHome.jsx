@@ -2,7 +2,7 @@ import {useState, useEffect, useContext} from "react";
 import {getAllCostumesGarments} from "../api/Production-Garments-Axios";
 import Accordion from 'react-bootstrap/Accordion';
 import {Link} from "react-router-dom";
-import {Button} from "react-bootstrap";
+import {Badge, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 
@@ -50,6 +50,10 @@ export default function GarmentsHome() {
                         <Accordion.Item eventKey={index.toString()}>
                             <Accordion.Header>{garment.name}</Accordion.Header>
                             <Accordion.Body>
+                                {garment.isDone ?
+                                    <Badge id="garmentPill" pill bg="success">Done</Badge> :
+                                    <Badge id="garmentPill" pill bg="danger">Not Done</Badge>
+                                }
                                 <p>Garment id: {garment.id}</p>
                                 <p>Garment description: {garment.description}</p>
 

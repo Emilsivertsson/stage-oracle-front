@@ -50,6 +50,7 @@ export default function UpdatePerformerProfile() {
     return (
         <div>
             <h1 className="text-center">Performer Profile Update</h1>
+            <br/>
             <Form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group controlId="formBasicFirstName">
                     <Form.Label>First Name</Form.Label>
@@ -60,7 +61,7 @@ export default function UpdatePerformerProfile() {
                                   onChange={(e) => setPerformer({...performer, firstName: e.target.value})}
                                   placeholder="Enter first name"/>
                 </Form.Group>
-
+                <br/>
                 <Form.Group controlId="formBasicLastName">
                     <Form.Label>Last Name</Form.Label>
                     <Form.Control type="text"
@@ -70,7 +71,7 @@ export default function UpdatePerformerProfile() {
                                   onChange={(e) => setPerformer({...performer, lastName: e.target.value})}
                                   placeholder="Enter last name"/>
                 </Form.Group>
-
+                <br/>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email"
@@ -79,7 +80,7 @@ export default function UpdatePerformerProfile() {
                                   onChange={(e) => setPerformer({...performer, email: e.target.value})}
                                   placeholder="Enter email"/>
                 </Form.Group>
-
+                <br/>
                 <Form.Group controlId="formBasicPhoneNr">
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control type="text"
@@ -88,7 +89,7 @@ export default function UpdatePerformerProfile() {
                                   onChange={(e) => setPerformer({...performer, phoneNr: e.target.value})}
                                   placeholder="Enter phone number"/>
                 </Form.Group>
-
+                <br/>
                 <Form.Group controlId="formBasicDepartment">
                     <Form.Label>Department</Form.Label>
                     <Form.Control type="text"
@@ -97,18 +98,19 @@ export default function UpdatePerformerProfile() {
                                   onChange={(e) => setPerformer({...performer, department: e.target.value})}
                                   placeholder="Enter department"/>
                 </Form.Group>
-
+                <br/>
                 <Button variant="primary" type="submit">
                     Update
                 </Button>
             </Form>
+
             <Link to="/performerHome">
                 <Button variant="primary">Back</Button>
             </Link>
 
             {!isCorrectInput ? (
                 <h3>Incorrect input, please try again</h3>
-            ) : ( <h3></h3>)}
+            ) : (<h3></h3>)}
 
         </div>
     );

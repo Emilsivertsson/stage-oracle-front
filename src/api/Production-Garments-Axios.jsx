@@ -24,6 +24,23 @@ export const getAllCostumesGarments = async (costumeId) => {
     }
 }
 
+export const getAllGarmentsInProduction = async (productionId) => {
+    const jwt = cookies.get("jwt");
+    try {
+        const response = await axios.get(`${productionURL}/productions/allGarmentsTodo/${productionId}`, {
+                headers: {
+                    "Authorization": `Bearer ${jwt}`
+                }
+            }
+        );
+        console.log(response);
+        return { success: true, data: response.data || [] };
+    } catch (error) {
+        console.error(error);
+        return { success: false, message: error.response?.data || error.message };
+    }
+}
+
 export const getOneGarment = async (garmentId) => {
     const jwt = cookies.get("jwt");
     try {
@@ -72,6 +89,23 @@ export const updateGarment = async (garmentId, garment) => {
     } catch (error) {
         console.error(error);
         return { success: false, message: error.response?.data || error.message || "Update costume failed" };
+    }
+}
+
+export const toggleGarmentStatus = async (garmentId) => {
+    const jwt = cookies.get("jwt");
+    try {
+        const response = await axios.patch(`${productionURL}/garments/${garmentId}`, {
+                headers: {
+                    "Authorization": `Bearer ${jwt}`
+                }
+            }
+        );
+        console.log(response);
+        return { success: true, data: response.data };
+    } catch (error) {
+        console.error(error);
+        return { success: false, message: error.response?.data || error.message };
     }
 }
 

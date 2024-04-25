@@ -86,3 +86,11 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
+#garmentPill{
+    float: right;
+}
+
+#inRotationPill{
+    float: right;
+}

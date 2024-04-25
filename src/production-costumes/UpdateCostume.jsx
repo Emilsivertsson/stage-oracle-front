@@ -62,7 +62,7 @@ export default function UpdateCostume() {
                     Update Costume
                 </Button>
             </Form>
-            <Link to={`/costumesHome}`}>
+            <Link to="/costumesHome">
                 <Button variant="primary">Back to Costumes</Button>
             </Link>
         </div>

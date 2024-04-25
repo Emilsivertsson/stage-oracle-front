@@ -44,47 +44,78 @@ export default function UpdatePerformerMeasurements() {
     return (
         <div>
             <h1 className="text-center">Update Measurements</h1>
+            <br/>
             <Form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group controlId="formBasicHeight">
                     <Form.Label>Height</Form.Label>
                     <Form.Control type="number"
-                                    name="height"
-                                    value={measurements.measurements.height}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, height: Number(e.target.value)}})}
-                                    placeholder="Enter height"/>
+                                  name="height"
+                                  value={measurements.measurements.height}
+                                  onChange={(e) => setMeasurements({
+                                      measurements: {
+                                          ...measurements.measurements,
+                                          height: Number(e.target.value)
+                                      }
+                                  })}
+                                  placeholder="Enter height"/>
                 </Form.Group>
+                <br/>
                 <Form.Group controlId="formBasicShoeSize">
                     <Form.Label>Shoe Size</Form.Label>
                     <Form.Control type="number"
-                                    name="shoeSize"
-                                    value={measurements.measurements.shoeSize}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, shoeSize: Number(e.target.value)}})}
-                                    placeholder="Enter shoe size"/>
+                                  name="shoeSize"
+                                  value={measurements.measurements.shoeSize}
+                                  onChange={(e) => setMeasurements({
+                                      measurements: {
+                                          ...measurements.measurements,
+                                          shoeSize: Number(e.target.value)
+                                      }
+                                  })}
+                                  placeholder="Enter shoe size"/>
                 </Form.Group>
+                <br/>
                 <Form.Group controlId="formBasicJacketSize">
                     <Form.Label>Jacket Size</Form.Label>
                     <Form.Control type="number"
-                                    name="jacketSize"
-                                    value={measurements.measurements.jacketSize}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, jacketSize: Number(e.target.value)}})}
-                                    placeholder="Enter jacket size"/>
+                                  name="jacketSize"
+                                  value={measurements.measurements.jacketSize}
+                                  onChange={(e) => setMeasurements({
+                                      measurements: {
+                                          ...measurements.measurements,
+                                          jacketSize: Number(e.target.value)
+                                      }
+                                  })}
+                                  placeholder="Enter jacket size"/>
                 </Form.Group>
+                <br/>
                 <Form.Group controlId="formBasicPantSize">
                     <Form.Label>Pant Size</Form.Label>
                     <Form.Control type="number"
-                                    name="pantSize"
-                                    value={measurements.measurements.pantSize}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, pantSize: Number(e.target.value)}})}
-                                    placeholder="Enter pant size"/>
+                                  name="pantSize"
+                                  value={measurements.measurements.pantSize}
+                                  onChange={(e) => setMeasurements({
+                                      measurements: {
+                                          ...measurements.measurements,
+                                          pantSize: Number(e.target.value)
+                                      }
+                                  })}
+                                  placeholder="Enter pant size"/>
                 </Form.Group>
+                <br/>
                 <Form.Group controlId="formBasicHead">
                     <Form.Label>Head</Form.Label>
                     <Form.Control type="number"
-                                    name="head"
-                                    value={measurements.measurements.head}
-                                    onChange={(e) => setMeasurements({measurements: {...measurements.measurements, head: Number(e.target.value)}})}
-                                    placeholder="Enter head size"/>
+                                  name="head"
+                                  value={measurements.measurements.head}
+                                  onChange={(e) => setMeasurements({
+                                      measurements: {
+                                          ...measurements.measurements,
+                                          head: Number(e.target.value)
+                                      }
+                                  })}
+                                  placeholder="Enter head size"/>
                 </Form.Group>
+                <br/>
                 <Button variant="primary" type="submit">
                     Update
                 </Button>

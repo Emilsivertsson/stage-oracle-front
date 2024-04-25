@@ -3,7 +3,7 @@ import {getAllProductions} from "../api/Production-productions-Axios.jsx";
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Accordion from 'react-bootstrap/Accordion';
 import {Link} from "react-router-dom";
-import {Button} from "react-bootstrap";
+import {Badge, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 
 export default function ProductionHome() {
@@ -45,18 +45,24 @@ export default function ProductionHome() {
                             <Accordion.Header>{production.title}</Accordion.Header>
                             <Accordion.Body>
                                 <p>Production id: {production.id}</p>
+                                {production.inRotation ?
+                                    <Badge id="inRotationPill" pill bg="success">In Rotation</Badge> :
+                                    <Badge id="inRotationPill" pill bg="danger">Not In Rotation</Badge>
+                                }
                                 <p>Production year:{production.year}</p>
-                                <p>In Rotation: {production.inRotation.toString()}</p>
                                 <p>Description: {production.description}</p>
 
                                 <Link to="/manifestHome">
-                                    <Button variant="primary" onClick={() => handleButtonClick(production.id)}>View Productions Manifests</Button>
+                                    <Button variant="primary" onClick={() => handleButtonClick(production.id)}>View
+                                        Productions Manifests</Button>
                                 </Link>
                                 <Link to="/updateProduction">
-                                    <Button variant="info" onClick={() => handleButtonClick(production.id)}>Update Production</Button>
+                                    <Button variant="info" onClick={() => handleButtonClick(production.id)}>Update
+                                        Production</Button>
                                 </Link>
                                 <Link to="/deleteProduction">
-                                    <Button variant="danger" onClick={() => handleButtonClick(production.id)}>Delete Production</Button>
+                                    <Button variant="danger" onClick={() => handleButtonClick(production.id)}>Delete
+                                        Production</Button>
                                 </Link>
                             </Accordion.Body>
                         </Accordion.Item>
