@@ -1,0 +1,16 @@
+#only v1 for service
+apiVersion: v1
+kind: Service
+metadata:
+  name: stage-oracle-front-service
+spec:
+    selector:
+        app: stage-oracle-front-pod
+        tier: frontend
+    ports:
+      - protocol: TCP
+        #port outside the container
+        port: 3000
+        #port inside the container
+        targetPort: 3000
+    type: LoadBalancer
