@@ -69,6 +69,7 @@ For Production Users:
 - Login
 - Perform CRUD operations on productions and its underlying data
 - Import Performers from the Performer API into Productions.
+- Send emails to Performers.
 
 For Admin:  
 - CRUD operations on all Users and Performers.
