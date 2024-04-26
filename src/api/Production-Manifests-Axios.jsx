@@ -11,7 +11,7 @@ const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 export const getProductionsManifests = async (ProductionId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/manifests/production/${ProductionId}`, {
+        const response = await axios.get(`${productionURL}/production-api/manifests/production/${ProductionId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -28,7 +28,7 @@ export const getProductionsManifests = async (ProductionId) => {
 export const getOneProductionManifest = async (id) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/manifests/${id}`, {
+        const response = await axios.get(`${productionURL}/production-api/manifests/${id}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -45,7 +45,7 @@ export const getOneProductionManifest = async (id) => {
 export const createProductionManifest = async (ProductionId, Manifest) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.post(`${productionURL}/manifests/${ProductionId}`,Manifest, {
+        const response = await axios.post(`${productionURL}/production-api/manifests/${ProductionId}`,Manifest, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -62,7 +62,7 @@ export const createProductionManifest = async (ProductionId, Manifest) => {
 export const updateProductionManifest = async (manifestId,Manifest) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${productionURL}/manifests/${manifestId}`, Manifest, {
+        const response = await axios.put(`${productionURL}/production-api/manifests/${manifestId}`, Manifest, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -79,7 +79,7 @@ export const updateProductionManifest = async (manifestId,Manifest) => {
 export const deleteProductionManifest = async (manifestId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${productionURL}/manifests/${manifestId}`, {
+        const response = await axios.delete(`${productionURL}/production-api/manifests/${manifestId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

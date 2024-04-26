@@ -10,7 +10,7 @@ const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 export const getAllProductions = async () => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/productions`, {
+        const response = await axios.get(`${productionURL}/production-api/productions`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -27,7 +27,7 @@ export const getAllProductions = async () => {
 export const getOneProduction = async (id) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/productions/${id}`, {
+        const response = await axios.get(`${productionURL}/production-api/productions/${id}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -44,7 +44,7 @@ export const getOneProduction = async (id) => {
 export const createProduction = async (production) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.post(`${productionURL}/productions`, production, {
+        const response = await axios.post(`${productionURL}/production-api/productions`, production, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -61,7 +61,7 @@ export const createProduction = async (production) => {
 export const updateProduction = async (id,production) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${productionURL}/productions/${id}`, production, {
+        const response = await axios.put(`${productionURL}/production-api/productions/${id}`, production, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -78,7 +78,7 @@ export const updateProduction = async (id,production) => {
 export const deleteProduction = async (id) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${productionURL}/productions/${id}`, {
+        const response = await axios.delete(`${productionURL}/production-api/productions/${id}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

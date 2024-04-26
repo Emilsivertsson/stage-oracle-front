@@ -10,7 +10,7 @@ const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 export const getAllCostumesGarments = async (costumeId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/garments/costume/${costumeId}`, {
+        const response = await axios.get(`${productionURL}/production-api/garments/costume/${costumeId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -27,7 +27,7 @@ export const getAllCostumesGarments = async (costumeId) => {
 export const getAllGarmentsInProduction = async (productionId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/productions/allGarmentsTodo/${productionId}`, {
+        const response = await axios.get(`${productionURL}/production-api/productions/allGarmentsTodo/${productionId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -44,7 +44,7 @@ export const getAllGarmentsInProduction = async (productionId) => {
 export const getOneGarment = async (garmentId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/garments/${garmentId}`, {
+        const response = await axios.get(`${productionURL}/production-api/garments/${garmentId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -61,7 +61,7 @@ export const getOneGarment = async (garmentId) => {
 export const createGarment = async (costumeId, garment) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.post(`${productionURL}/garments/${costumeId}`, garment, {
+        const response = await axios.post(`${productionURL}/production-api/garments/${costumeId}`, garment, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -78,7 +78,7 @@ export const createGarment = async (costumeId, garment) => {
 export const updateGarment = async (garmentId, garment) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${productionURL}/garments/${garmentId}`, garment, {
+        const response = await axios.put(`${productionURL}/production-api/garments/${garmentId}`, garment, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -95,7 +95,7 @@ export const updateGarment = async (garmentId, garment) => {
 export const toggleGarmentStatus = async (garmentId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.patch(`${productionURL}/garments/${garmentId}`, {
+        const response = await axios.patch(`${productionURL}/production-api/garments/${garmentId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -112,7 +112,7 @@ export const toggleGarmentStatus = async (garmentId) => {
 export const deleteGarment = async (garmentId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${productionURL}/garments/${garmentId}`, {
+        const response = await axios.delete(`${productionURL}/production-api/garments/${garmentId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

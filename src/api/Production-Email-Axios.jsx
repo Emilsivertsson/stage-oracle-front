@@ -11,7 +11,7 @@ export const sendEmail = async (email) => {
     const jwt = cookies.get("jwt");
 
     try {
-        const response = await axios.post(`${productionURL}/email/send`, email, {
+        const response = await axios.post(`${productionURL}/production-api/email/send`, email, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

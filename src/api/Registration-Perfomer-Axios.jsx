@@ -12,7 +12,7 @@ export const getUserName = () => {
 
 export const registerPerformer = async (username, password) => {
     try {
-        const response = await axios.post(`${registrationURL}/auth/register`, {
+        const response = await axios.post(`${registrationURL}/registration-api/auth/register`, {
             username: username,
             password: password
         });
@@ -26,7 +26,7 @@ export const registerPerformer = async (username, password) => {
 
 export const loginPerformer = async (username, password) => {
     try {
-        const response = await axios.post(`${registrationURL}/auth/login`, {
+        const response = await axios.post(`${registrationURL}/registration-api/auth/login`, {
             username: username,
             password: password
         });
@@ -44,7 +44,7 @@ export const loginPerformer = async (username, password) => {
 export const getOnePerformer = async () => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${registrationURL}/performer`, {
+        const response = await axios.get(`${registrationURL}/registration-api/performer`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -61,7 +61,7 @@ export const getOnePerformer = async () => {
 export const updatePerformerProfile = async (performer) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${registrationURL}/performer`, performer, {
+        const response = await axios.put(`${registrationURL}/registration-api/performer`, performer, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -77,7 +77,7 @@ export const updatePerformerProfile = async (performer) => {
 export const updatePerformerMeasurements = async (measurements) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${registrationURL}/performer/measurements/`, measurements, {
+        const response = await axios.put(`${registrationURL}/registration-api/performer/measurements/`, measurements, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -103,7 +103,7 @@ export const logoutPerformer = async () => {
 export const deleteAccount = async () => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${registrationURL}/performer`, {
+        const response = await axios.delete(`${registrationURL}/registration-api/performer`, {
                 headers: {"Authorization": `Bearer ${jwt}`}
             }
         );

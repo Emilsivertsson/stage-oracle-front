@@ -10,7 +10,7 @@ const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 export const getOneUser = async (userId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/admin/${userId}`, {
+        const response = await axios.get(`${productionURL}/production-api/admin/${userId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -27,7 +27,7 @@ export const getOneUser = async (userId) => {
 export const getAllUsers = async () => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/admin/`, {
+        const response = await axios.get(`${productionURL}/production-api/admin/`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -44,7 +44,7 @@ export const getAllUsers = async () => {
 export const updateUser = async (userId, user) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${productionURL}/admin/${userId}`, user, {
+        const response = await axios.put(`${productionURL}/production-api/admin/${userId}`, user, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -61,7 +61,7 @@ export const updateUser = async (userId, user) => {
 export const deleteUser = async (userId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${productionURL}/admin/${userId}`, {
+        const response = await axios.delete(`${productionURL}/production-api/admin/${userId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

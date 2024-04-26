@@ -16,7 +16,7 @@ export const getUsername = () => {
 
 export const registerUser = async (username, password) => {
     try {
-        const response = await axios.post(`${productionURL}/auth/register`, {
+        const response = await axios.post(`${productionURL}/production-api/auth/register`, {
             username: username,
             password: password
         });
@@ -30,7 +30,7 @@ export const registerUser = async (username, password) => {
 
 export const loginUser = async (username, password) => {
     try {
-        const response = await axios.post(`${productionURL}/auth/login`, {
+        const response = await axios.post(`${productionURL}/production-api/auth/login`, {
             username: username,
             password: password
         });

@@ -10,7 +10,7 @@ const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 export const getAllActsCostumes = async (actId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/costumes/act/${actId}`, {
+        const response = await axios.get(`${productionURL}/production-api/costumes/act/${actId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -27,7 +27,7 @@ export const getAllActsCostumes = async (actId) => {
 export const getOneCostume = async (costumeId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/costumes/${costumeId}`, {
+        const response = await axios.get(`${productionURL}/production-api/costumes/${costumeId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -44,7 +44,7 @@ export const getOneCostume = async (costumeId) => {
 export const createCostume = async (actId, costume) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.post(`${productionURL}/costumes/${actId}`, costume, {
+        const response = await axios.post(`${productionURL}/production-api/costumes/${actId}`, costume, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -61,7 +61,7 @@ export const createCostume = async (actId, costume) => {
 export const updateCostume = async (costumeId, costume) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${productionURL}/costumes/${costumeId}`, costume, {
+        const response = await axios.put(`${productionURL}/production-api/costumes/${costumeId}`, costume, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -78,7 +78,7 @@ export const updateCostume = async (costumeId, costume) => {
 export const deleteCostume = async (costumeId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${productionURL}/costumes/${costumeId}`, {
+        const response = await axios.delete(`${productionURL}/production-api/costumes/${costumeId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

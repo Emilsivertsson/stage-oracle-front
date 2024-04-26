@@ -13,7 +13,7 @@ const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 export const getAllPerformersFromRegistry = async (castId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/performers/registry/${castId}`, {
+        const response = await axios.get(`${productionURL}/production-api/performers/registry/${castId}`, {
             headers: {
                 "Authorization": `Bearer ${jwt}`
             }
@@ -29,7 +29,7 @@ export const getAllPerformersFromRegistry = async (castId) => {
 export const getAllCastsPerformers = async (castId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/performers/cast/${castId}`, {
+        const response = await axios.get(`${productionURL}/production-api/performers/cast/${castId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -47,7 +47,7 @@ export const createPerformer = async (castId, performerId) => {
     const jwt = cookies.get("jwt");
     const username = cookies.get("username");
     try {
-        const response = await axios.post(`${productionURL}/performers/${castId}`,
+        const response = await axios.post(`${productionURL}/production-api/performers/${castId}`,
             {
                 performerId: performerId,
                 username: username
@@ -70,7 +70,7 @@ export const createPerformer = async (castId, performerId) => {
 export const deletePerformer = async (performerId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${productionURL}/performers/${performerId}`, {
+        const response = await axios.delete(`${productionURL}/production-api/performers/${performerId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

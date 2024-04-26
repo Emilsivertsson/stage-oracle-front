@@ -10,7 +10,7 @@ const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 export const getAllPerformerActs = async (performerId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/acts/performer/${performerId}`, {
+        const response = await axios.get(`${productionURL}/production-api/acts/performer/${performerId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -27,7 +27,7 @@ export const getAllPerformerActs = async (performerId) => {
 export const getOneAct = async (actId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/acts/${actId}`, {
+        const response = await axios.get(`${productionURL}/production-api/acts/${actId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -44,7 +44,7 @@ export const getOneAct = async (actId) => {
 export const createAct = async (performerId, act) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.post(`${productionURL}/acts/${performerId}`, act, {
+        const response = await axios.post(`${productionURL}/production-api/acts/${performerId}`, act, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -61,7 +61,7 @@ export const createAct = async (performerId, act) => {
 export const updateAct = async (actId, act) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${productionURL}/acts/${actId}`, act, {
+        const response = await axios.put(`${productionURL}/production-api/acts/${actId}`, act, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -78,7 +78,7 @@ export const updateAct = async (actId, act) => {
 export const deleteAct = async (actId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${productionURL}/acts/${actId}`, {
+        const response = await axios.delete(`${productionURL}/production-api/acts/${actId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

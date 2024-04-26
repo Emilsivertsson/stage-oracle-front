@@ -10,7 +10,7 @@ const productionURL = import.meta.env.VITE_PRODUCTION_API_URL;
 export const getAllManifestCasts = async (manifestId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/casts/manifest/${manifestId}`, {
+        const response = await axios.get(`${productionURL}/production-api/casts/manifest/${manifestId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -27,7 +27,7 @@ export const getAllManifestCasts = async (manifestId) => {
 export const getOneManifestCast = async (manifestId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.get(`${productionURL}/casts/${manifestId}`, {
+        const response = await axios.get(`${productionURL}/production-api/casts/${manifestId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -44,7 +44,7 @@ export const getOneManifestCast = async (manifestId) => {
 export const createManifestCast = async (manifestId, cast) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.post(`${productionURL}/casts/${manifestId}`, cast, {
+        const response = await axios.post(`${productionURL}/production-api/casts/${manifestId}`, cast, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -61,7 +61,7 @@ export const createManifestCast = async (manifestId, cast) => {
 export const updateManifestCast = async (manifestId, cast) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.put(`${productionURL}/casts/${manifestId}`, cast, {
+        const response = await axios.put(`${productionURL}/production-api/casts/${manifestId}`, cast, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
@@ -78,7 +78,7 @@ export const updateManifestCast = async (manifestId, cast) => {
 export const deleteManifestCast = async (manifestId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.delete(`${productionURL}/casts/${manifestId}`, {
+        const response = await axios.delete(`${productionURL}/production-api/casts/${manifestId}`, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }
