@@ -6,6 +6,6 @@ services:
       - "3000:3000"
     stdin_open: true
     tty: true
-    #environment:
-    #- VITE_REGISTRATION_API_URL=
-    #- VITE_PRODUCTION_API_URL=
+    environment:
+      - VITE_REGISTRATION_API_URL= http://127.0.0.1:51929
+      - VITE_PRODUCTION_API_URL= http://127.0.0.1:51943
