@@ -5,11 +5,12 @@ import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-
+import TodoModal from '../TodoModal.jsx';
 export default function ManifestHome() {
 
     const {globalState, updateGlobalState} = useContext(AppContext);
     const [manifests, setManifests] = useState([]);
+    const [showTodoModal, setShowTodoModal] = useState(false);
 
     useEffect(() => {
         getProductionsManifests(globalState.productionId).then((response) => {
@@ -23,7 +24,6 @@ export default function ManifestHome() {
         updateGlobalState({...globalState, manifestId: manifestId});
     }
 
-
     return (
         <main className={'manifestHome'}>
             <h1>Manifests</h1>
@@ -35,6 +35,12 @@ export default function ManifestHome() {
             <Link to="/createManifest">
                 <Button variant="primary">Create new Manifest</Button>
             </Link>
+
+            <Button variant="success" onClick={() => {
+                setShowTodoModal(true);
+            }}>Show Todos</Button>
+            <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
+
             <Link to="/productionHome">
                 <Button variant="primary">Back to Productions</Button>
             </Link>

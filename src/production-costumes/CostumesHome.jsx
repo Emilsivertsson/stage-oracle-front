@@ -5,11 +5,13 @@ import {Link, } from "react-router-dom";
 import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import TodoModal from '../TodoModal.jsx';
 
 export default function CostumesHome() {
 
     const {globalState,updateGlobalState} = useContext(AppContext);
     const [costumes, setCostumes] = useState([]);
+    const [showTodoModal, setShowTodoModal] = useState(false);
 
     useEffect(() => {
         getAllActsCostumes(globalState.actId).then((response) => {
@@ -22,6 +24,7 @@ export default function CostumesHome() {
     const handleButtonClick = (costumeId) => {
         updateGlobalState({...globalState,costumeId: costumeId});
     }
+
 
 
     return (
@@ -39,6 +42,12 @@ export default function CostumesHome() {
             <Link to={`/createCostume`}>
                 <Button variant="primary">Create new Costume</Button>
             </Link>
+
+            <Button variant="success" onClick={() => {
+                setShowTodoModal(true);
+            }}>Show Todos</Button>
+            <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
+
             <Link to={`/actsHome`}>
                 <Button variant="primary">Back to Acts</Button>
             </Link>

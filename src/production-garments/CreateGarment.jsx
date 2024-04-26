@@ -60,13 +60,14 @@ export default function CreateCostume() {
                                   placeholder="Enter Description"/>
                 </Form.Group>
 
-                <Form.Group controlId="formBasicTitle">
-                    <Form.Label>Is Done</Form.Label>
-                    <Form.Control type="checkbox"
-                                  name="isDone"
-                                  value={garment.isDone}
-                                  onChange={handleInputChange}
-                                  placeholder="Is the Garment Done?"/>
+                <Form.Group controlId="formBasicInRotation">
+                    <Form.Check
+                        type="checkbox"
+                        name="isDone"
+                        checked={garment.isDone}
+                        onChange={handleInputChange}
+                        label="Is it Done?"
+                    />
                 </Form.Group>
 
                 <br/>

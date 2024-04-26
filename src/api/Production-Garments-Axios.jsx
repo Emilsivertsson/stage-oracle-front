@@ -24,7 +24,7 @@ export const getAllCostumesGarments = async (costumeId) => {
     }
 }
 
-export const getAllGarmentsInProduction = async (productionId) => {
+export const getAllGarmentsThatsNotDoneInProduction = async (productionId) => {
     const jwt = cookies.get("jwt");
     try {
         const response = await axios.get(`${productionURL}/production-api/productions/allGarmentsTodo/${productionId}`, {
@@ -95,7 +95,7 @@ export const updateGarment = async (garmentId, garment) => {
 export const toggleGarmentStatus = async (garmentId) => {
     const jwt = cookies.get("jwt");
     try {
-        const response = await axios.patch(`${productionURL}/production-api/garments/${garmentId}`, {
+        const response = await axios.put(`${productionURL}/production-api/garments/garmentStatus/${garmentId}`, {}, {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

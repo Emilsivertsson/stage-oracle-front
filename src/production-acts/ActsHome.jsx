@@ -5,11 +5,13 @@ import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import TodoModal from '../TodoModal.jsx';
 
 export default function ActsHome() {
 
     const {globalState, updateGlobalState} = useContext(AppContext);
     const [acts, setActs] = useState([]);
+    const [showTodoModal, setShowTodoModal] = useState(false);
 
     useEffect(() => {
         getAllPerformerActs(globalState.performerId).then((response) => {
@@ -22,6 +24,7 @@ export default function ActsHome() {
     const handleButtonClick = (actId) => {
         updateGlobalState({...globalState, actId: actId});
     }
+
 
 
     return (
@@ -38,6 +41,12 @@ export default function ActsHome() {
             <Link to="/createAct">
                 <Button variant="primary">Create new Act</Button>
             </Link>
+
+            <Button variant="success" onClick={() => {
+                setShowTodoModal(true);
+            }}>Show Todos</Button>
+            <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
+
             <Link to="/performersHome">
                 <Button variant="primary">Back to Performers</Button>
             </Link>

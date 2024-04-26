@@ -5,11 +5,13 @@ import {Link} from "react-router-dom";
 import {Badge, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import TodoModal from '../TodoModal.jsx';
 
 export default function GarmentsHome() {
 
     const {globalState,updateGlobalState} = useContext(AppContext);
     const [garments, setGarments] = useState([]);
+    const [showTodoModal, setShowTodoModal] = useState(false);
 
 
     useEffect(() => {
@@ -23,6 +25,7 @@ export default function GarmentsHome() {
     const handleButtonClick = (garmentId) => {
         updateGlobalState({...globalState,garmentId: garmentId});
     }
+
 
 
     return (
@@ -41,6 +44,12 @@ export default function GarmentsHome() {
             <Link to="/createGarment">
                 <Button variant="primary">Create new Garment</Button>
             </Link>
+
+            <Button variant="success" onClick={() => {
+                setShowTodoModal(true);
+            }}>Show Todos</Button>
+            <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
+
             <Link to="/costumesHome">
                 <Button variant="primary">Back to Costumes</Button>
             </Link>

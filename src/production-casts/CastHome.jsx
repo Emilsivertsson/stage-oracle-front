@@ -5,11 +5,13 @@ import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import TodoModal from '../TodoModal.jsx';
 
 export default function CastHome() {
 
     const {globalState, updateGlobalState} = useContext(AppContext);
     const [casts, setCasts] = useState([]);
+    const [showTodoModal, setShowTodoModal] = useState(false);
 
     useEffect(() => {
         getAllManifestCasts(globalState.manifestId).then((response) => {
@@ -24,6 +26,8 @@ export default function CastHome() {
     }
 
 
+
+
     return (
         <main className={'castHome'}>
             <h1>Casts</h1>
@@ -36,6 +40,12 @@ export default function CastHome() {
             <Link to="/createCast">
                 <Button variant="primary">Create new Cast</Button>
             </Link>
+
+            <Button variant="success" onClick={() => {
+                setShowTodoModal(true);
+            }}>Show Todos</Button>
+            <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
+
             <Link to="/manifestHome">
                 <Button variant="primary">Back to Manifests</Button>
             </Link>

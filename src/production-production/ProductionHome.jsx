@@ -11,6 +11,7 @@ export default function ProductionHome() {
     const {globalState, updateGlobalState} = useContext(AppContext);
     const [productions, setProductions] = useState([]);
 
+
     useEffect(() => {
         getAllProductions().then((response) => {
             setProductions(response.data);
@@ -23,6 +24,7 @@ export default function ProductionHome() {
     const handleButtonClick = (productionId) => {
          updateGlobalState({...globalState,productionId: productionId});
     }
+
 
 
     return (

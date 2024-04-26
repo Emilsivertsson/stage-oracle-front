@@ -7,6 +7,7 @@ import AppContext from "../AppContext.jsx";
 import PerformerModal from "./PerformerModal.jsx";
 import PerformerEmail from "./PerformerEmail.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import TodoModal from '../TodoModal.jsx';
 
 export default function PerformersHome() {
 
@@ -18,6 +19,7 @@ export default function PerformersHome() {
     const [showEmail, setShowEmail] = useState(false);
     const [selectedPerformerEmail, setSelectedPerformerEmail] = useState(null);
     const [hasEmail, setHasEmail] = useState(false);
+    const [showTodoModal, setShowTodoModal] = useState(false);
 
     useEffect(() => {
         getAllCastsPerformers(globalState.castId).then((response) => {
@@ -30,6 +32,7 @@ export default function PerformersHome() {
     const handleButtonClick = (performerId) => {
         updateGlobalState({...globalState,performerId: performerId});
     }
+
 
 
     return (
@@ -46,6 +49,12 @@ export default function PerformersHome() {
             <Link to="/createPerformer">
                 <Button variant="primary">Import Performer</Button>
             </Link>
+
+            <Button variant="success" onClick={() => {
+                setShowTodoModal(true);
+            }}>Show Todos</Button>
+            <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
+
             <Link to={`/castHome`}>
                 <Button variant="primary">Back to Casts</Button>
             </Link>
