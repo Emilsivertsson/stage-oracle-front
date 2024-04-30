@@ -20,7 +20,7 @@ export const registerUser = async (username, password) => {
             username: username,
             password: password
         });
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.log(error);
@@ -36,8 +36,7 @@ export const loginUser = async (username, password) => {
         });
         cookies.set("jwt", response.data.jwt, {path: "/"});
         cookies.set("username", response.data.username, {path: "/"});
-        console.log(cookies.get("jwt"));
-        console.log(cookies.get("username"));
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

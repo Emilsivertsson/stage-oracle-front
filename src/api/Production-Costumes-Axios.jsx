@@ -16,7 +16,7 @@ export const getAllActsCostumes = async (actId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -33,7 +33,7 @@ export const getOneCostume = async (costumeId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -50,7 +50,7 @@ export const createCostume = async (actId, costume) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -67,7 +67,7 @@ export const updateCostume = async (costumeId, costume) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -84,7 +84,7 @@ export const deleteCostume = async (costumeId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

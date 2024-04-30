@@ -16,7 +16,7 @@ export const getAllManifestCasts = async (manifestId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -33,7 +33,7 @@ export const getOneManifestCast = async (manifestId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -50,7 +50,7 @@ export const createManifestCast = async (manifestId, cast) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -67,7 +67,7 @@ export const updateManifestCast = async (manifestId, cast) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -84,7 +84,7 @@ export const deleteManifestCast = async (manifestId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

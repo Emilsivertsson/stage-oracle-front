@@ -18,7 +18,7 @@ export const getAllPerformersFromRegistry = async (castId) => {
                 "Authorization": `Bearer ${jwt}`
             }
         });
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -35,7 +35,7 @@ export const getAllCastsPerformers = async (castId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -58,7 +58,7 @@ export const createPerformer = async (castId, performerId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -76,7 +76,7 @@ export const deletePerformer = async (performerId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

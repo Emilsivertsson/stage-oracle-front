@@ -16,7 +16,7 @@ export const getAllProductions = async () => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -33,7 +33,7 @@ export const getOneProduction = async (id) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -50,7 +50,7 @@ export const createProduction = async (production) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -67,7 +67,7 @@ export const updateProduction = async (id,production) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -84,7 +84,7 @@ export const deleteProduction = async (id) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

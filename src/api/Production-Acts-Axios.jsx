@@ -16,7 +16,7 @@ export const getAllPerformerActs = async (performerId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -33,7 +33,7 @@ export const getOneAct = async (actId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -50,7 +50,7 @@ export const createAct = async (performerId, act) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -67,7 +67,7 @@ export const updateAct = async (actId, act) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -84,7 +84,7 @@ export const deleteAct = async (actId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

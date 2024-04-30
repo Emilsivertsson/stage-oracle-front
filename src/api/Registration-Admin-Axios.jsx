@@ -15,7 +15,7 @@ export const getOneUser = async (userId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -32,7 +32,6 @@ export const getAllUsers = async () => {
                 }
             }
         );
-        console.log(response);
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -49,7 +48,7 @@ export const updateUser = async (userId, user) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -66,7 +65,7 @@ export const deleteUser = async (userId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

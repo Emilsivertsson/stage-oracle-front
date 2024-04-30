@@ -16,7 +16,7 @@ export const getAllCostumesGarments = async (costumeId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -33,7 +33,7 @@ export const getAllGarmentsThatsNotDoneInProduction = async (productionId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data || [] };
     } catch (error) {
         console.error(error);
@@ -50,7 +50,7 @@ export const getOneGarment = async (garmentId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -67,7 +67,7 @@ export const createGarment = async (costumeId, garment) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -84,7 +84,7 @@ export const updateGarment = async (garmentId, garment) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -101,7 +101,7 @@ export const toggleGarmentStatus = async (garmentId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -118,7 +118,7 @@ export const deleteGarment = async (garmentId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

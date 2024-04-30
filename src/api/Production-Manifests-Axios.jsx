@@ -17,7 +17,7 @@ export const getProductionsManifests = async (ProductionId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -34,7 +34,7 @@ export const getOneProductionManifest = async (id) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -51,7 +51,7 @@ export const createProductionManifest = async (ProductionId, Manifest) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -68,7 +68,7 @@ export const updateProductionManifest = async (manifestId,Manifest) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
@@ -85,7 +85,7 @@ export const deleteProductionManifest = async (manifestId) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);

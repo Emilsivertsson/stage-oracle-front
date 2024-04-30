@@ -17,7 +17,7 @@ export const sendEmail = async (email) => {
                 }
             }
         );
-        console.log(response);
+
         return { success: true, data: response.data };
     } catch (error) {
         console.error(error);
