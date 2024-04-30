@@ -30,9 +30,9 @@ spec:
           # add env variables
           env:
             - name: VITE_REGISTRATION_API_URL
-              value: /registration-api
+              value: 'http://127.0.0.1:64849/registration-api'
             - name: VITE_PRODUCTION_API_URL
-              value: /production-api
+              value: 'http://127.0.0.1:64826/production-api'
 
           # check if the container is running
           livenessProbe:
