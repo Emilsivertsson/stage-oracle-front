@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {createProduction} from "../api/Production-productions-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 
@@ -85,6 +85,9 @@ export default function CreateProduction() {
                     Create Production
                 </Button>
             </Form>
+            <Link to="/productionHome">
+                <Button variant="primary">Back</Button>
+            </Link>
         </div>
     )
 
