@@ -1,15 +1,18 @@
 
-import { useState } from "react";
+import {useContext, useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {loginUser} from "../api/Production-User-Axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import Cookies from "universal-cookie";
+import AppContext from "../AppContext.jsx";
 
 const cookies = new Cookies();
 
 
 export default function LoginUser() {
+
+    const {globalState, updateGlobalState} = useContext(AppContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
@@ -25,7 +28,10 @@ export default function LoginUser() {
             console.log(result);
             if (result.success) {
                 const updatedUsernameCookie = cookies.get("username");
-                console.log(updatedUsernameCookie);
+                updateGlobalState({
+                    ...globalState,
+                    loggedIn: true
+                });
                 navigate(updatedUsernameCookie === "admin" ? "/adminProductionHome" : "/productionHome");
             } else {
                 setErrorMessage("Login failed. Please try again.")

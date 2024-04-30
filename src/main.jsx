@@ -8,6 +8,7 @@ import AppContext from "./AppContext.jsx";
 import Home from './Home.jsx'
 import PageNotFound from "./PageNotFound.jsx";
 import Layout from "./Layout.jsx";
+import * as AwanRoutes from "./routes/AwanRoutes.jsx";
 import * as PerformerRoutes from "./routes/PerformerRoutes.jsx";
 import * as PerformerAdminRoutes from "./routes/PerformerAdminRoutes.jsx";
 import * as ProductionProductionRoutes from "./routes/ProductionProductionRoutes.jsx";
@@ -30,6 +31,7 @@ const initialGlobalState = {
     actId: null,
     costumeId: null,
     garmentId: null,
+    loggedIn: false,
 };
 
 function Main() {
@@ -56,6 +58,7 @@ const router = createBrowserRouter([
         children: [
             { path: '/', element: <Home />},
             ...PerformerRoutes.routes,
+            ...AwanRoutes.routes,
             ...PerformerAdminRoutes.routes,
             ...ProductionActsRoutes.routes,
             ...ProductionCostumeRoutes.routes,

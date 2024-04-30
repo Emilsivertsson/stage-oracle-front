@@ -1,15 +1,19 @@
 
-import { useState } from "react";
+import {useContext, useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {getOnePerformer, loginPerformer} from "../api/Registration-Perfomer-Axios.jsx";
 import Cookies from 'universal-cookie';
+import AppContext from "../AppContext.jsx";
+
 
 import {Link, useNavigate} from "react-router-dom";
 
 const cookies = new Cookies();
 
 export default function LoginPerformer() {
+
+    const {globalState, updateGlobalState} = useContext(AppContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
@@ -24,16 +28,20 @@ export default function LoginPerformer() {
             const result = await loginPerformer(username, password);
             if (result.success) {
                 const updatedUsernameCookie = cookies.get("username");
+                updateGlobalState({
+                    ...globalState,
+                    loggedIn: true
+                });
                 if(updatedUsernameCookie === "admin") {
                     navigate("/adminHome");
                 } else {
                     const performerLoggedIn = await getOnePerformer();
-                    if(performerLoggedIn.data.firstName !== "" && performerLoggedIn.data.firstName !== null) {
+                    if (performerLoggedIn.data.firstName !== "" && performerLoggedIn.data.firstName !== null) {
                         navigate("/performerHome");
                     } else {
                         navigate("/profileUpdate");
+                    }
                 }
-            }
 
 
             } else {
