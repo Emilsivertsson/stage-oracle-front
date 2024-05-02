@@ -3,6 +3,7 @@ import {useNavigate, Link} from "react-router-dom";
 import {Form, Button} from "react-bootstrap";
 import {getOneUser, updateUser} from "../api/Registration-Admin-Axios.jsx";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function UpdateCostume() {
 
@@ -71,9 +72,8 @@ export default function UpdateCostume() {
                     Update User
                 </Button>
             </Form>
-            <Link to="/adminHome">
-                <Button variant="primary">Back </Button>
-            </Link>
+
+            <ButtonComponent buttonText="Back" linkPath="/adminHome" variant="primary"/>
         </div>
     )
 

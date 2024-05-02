@@ -5,6 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import {Link} from "react-router-dom";
 import {Badge, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function ProductionHome() {
 
@@ -37,9 +38,8 @@ export default function ProductionHome() {
                 <Breadcrumb.Item active>Productions</Breadcrumb.Item>
             </Breadcrumb>
 
-            <Link to="/createProduction">
-                <Button variant="primary">Register Production</Button>
-            </Link>
+            <ButtonComponent buttonText="Register Production" linkPath="/createProduction" variant="primary"/>
+
             {productions.map((production, index) => (
                 <div key={index}>
                     <Accordion className="accordion-fixed-width" >

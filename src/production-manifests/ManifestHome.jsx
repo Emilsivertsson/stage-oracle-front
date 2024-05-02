@@ -6,6 +6,7 @@ import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import TodoModal from '../TodoModal.jsx';
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 export default function ManifestHome() {
 
     const {globalState, updateGlobalState} = useContext(AppContext);
@@ -32,18 +33,16 @@ export default function ManifestHome() {
                 <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/productionHome" }}>Productions</Breadcrumb.Item>
                 <Breadcrumb.Item active>Manifests</Breadcrumb.Item>
             </Breadcrumb>
-            <Link to="/createManifest">
-                <Button variant="primary">Create new Manifest</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Create new Manifest" linkPath="/createManifest" variant="primary"/>
 
             <Button variant="success" onClick={() => {
                 setShowTodoModal(true);
-            }}>Show Todos</Button>
+            }}>Show Garments</Button>
             <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
 
-            <Link to="/productionHome">
-                <Button variant="primary">Back to Productions</Button>
-            </Link>
+            <ButtonComponent buttonText="Back to Productions" linkPath="/productionHome" variant="primary"/>
+
             {manifests.map((manifest, index) => (
                 <div key={index}>
                     <Accordion className="accordion-fixed-width" >

@@ -2,6 +2,7 @@ import { Card, Spinner, Button, Form, InputGroup } from "react-bootstrap";
 import {useEffect, useState} from "react";
 import {getAllQuestions,askQuestion} from "../api/Production-Awan-Axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function AwanChat() {
     const navigate = useNavigate();
@@ -32,11 +33,9 @@ export default function AwanChat() {
 
     const HandleSubmit = async (e) => {
         e.preventDefault();
-        setQuestion({
-            question: e.target.question.value
-        });
+        const newQuestion = e.target.question.value;
         setIsLoading(true);
-        const response = await askQuestion(question);
+        const response = await askQuestion({ question: newQuestion });
 
         if (response.success) {
             console.log(response.data);
@@ -54,7 +53,6 @@ export default function AwanChat() {
         }
     }
 
-
     return (
         <div>
             <h1>Oracle Chat</h1>
@@ -64,9 +62,9 @@ export default function AwanChat() {
                 <Form className="form" onSubmit={HandleSubmit}>
                     <Form.Group controlId="formBasicQuestion">
                         <Button variant="primary" type="submit">Send</Button>
-                        <Link to="/">
-                            <Button variant="primary">Back to Home</Button>
-                        </Link>
+
+                        <ButtonComponent buttonText="Back to Home" linkPath="/" variant="primary"/>
+
                         <InputGroup>
                             <Form.Control type="text"
                                             name="question"

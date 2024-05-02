@@ -1,22 +1,18 @@
 import {Link} from "react-router-dom";
 import PerformerProfile from "./PerformerProfile.jsx";
 import {Button} from "react-bootstrap";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function PerformerHome() {
 
     return (
         <div>
             <PerformerProfile/>
-            <Link to="/measurementsUpdate">
-                <Button variant="primary">Update Measurements</Button>
-            </Link>
-            <Link to ="/profileUpdate">
-                <Button variant="primary">Update Profile</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Update Measurements" linkPath="/measurementsUpdate" variant={"primary"}/>
+            <ButtonComponent buttonText="Update Profile" linkPath="/profileUpdate" variant={"primary"}/>
             <br/>
-            <Link to="/deleteAccount">
-                <Button variant="danger">Delete Account</Button>
-            </Link>
+            <ButtonComponent buttonText="Delete Account" linkPath="/deleteAccount" variant="danger"/>
         </div>
     );
 }

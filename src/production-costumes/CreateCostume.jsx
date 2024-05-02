@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {createCostume} from "../api/Production-Costumes-Axios";
 import {Form, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function CreateCostume() {
 
@@ -52,9 +53,9 @@ export default function CreateCostume() {
                 <Button variant="primary" type="submit">
                     Create Costume
                 </Button>
-                <Link to="/costumesHome">
-                    <Button variant="primary">Back</Button>
-                </Link>
+
+                <ButtonComponent buttonText="Back" linkPath="/costumesHome" variant="primary"/>
+
             </Form>
         </div>
     )

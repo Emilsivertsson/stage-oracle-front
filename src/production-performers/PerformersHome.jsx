@@ -8,6 +8,7 @@ import PerformerModal from "./PerformerModal.jsx";
 import PerformerEmail from "./PerformerEmail.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import TodoModal from '../TodoModal.jsx';
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function PerformersHome() {
 
@@ -46,18 +47,16 @@ export default function PerformersHome() {
                 <Breadcrumb.Item href="/castHome">Casts</Breadcrumb.Item>
                 <Breadcrumb.Item active>Performers</Breadcrumb.Item>
             </Breadcrumb>
-            <Link to="/createPerformer">
-                <Button variant="primary">Import Performer</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Create new Performer" linkPath="/createPerformer" variant="primary"/>
 
             <Button variant="success" onClick={() => {
                 setShowTodoModal(true);
-            }}>Show Todos</Button>
+            }}>Show Garments</Button>
             <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
 
-            <Link to={`/castHome`}>
-                <Button variant="primary">Back to Casts</Button>
-            </Link>
+            <ButtonComponent buttonText="Back to Casts" linkPath="/castHome" variant="primary"/>
+
             {performers.map((performer, index) => (
             <div key={index}>
                 <Accordion className="accordion-fixed-width" >

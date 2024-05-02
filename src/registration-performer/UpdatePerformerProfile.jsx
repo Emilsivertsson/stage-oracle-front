@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {getOnePerformer, updatePerformerProfile} from "../api/Registration-Perfomer-Axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 
 
@@ -104,9 +105,7 @@ export default function UpdatePerformerProfile() {
                 </Button>
             </Form>
 
-            <Link to="/performerHome">
-                <Button variant="primary">Back</Button>
-            </Link>
+            <ButtonComponent buttonText="Back" linkPath="/performerHome" variant="primary"/>
 
             {!isCorrectInput ? (
                 <h3>Incorrect input, please try again</h3>

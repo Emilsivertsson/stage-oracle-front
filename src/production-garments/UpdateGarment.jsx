@@ -3,6 +3,7 @@ import {useNavigate, Link} from "react-router-dom";
 import {getOneGarment, updateGarment} from "../api/Production-Garments-Axios";
 import {Form, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function UpdateGarment() {
 
@@ -82,9 +83,8 @@ export default function UpdateGarment() {
                     Update Garment
                 </Button>
             </Form>
-            <Link to="/garmentsHome">
-                <Button variant="primary">Back to Garments</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Back to Garments" linkPath="/garmentsHome" variant="primary"/>
         </div>
     )
 

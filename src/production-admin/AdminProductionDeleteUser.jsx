@@ -18,7 +18,7 @@ export default function AdminProductionDeleteUser() {
     return (
         <div>
             <h1>Delete User</h1>
-            <h2>Are you sure you want to delete the User?</h2>
+            <p>Are you sure you want to delete the User?</p>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
             <Button variant="primary" onClick={() => navigate("/adminProductionHome")}>No</Button>
         </div>

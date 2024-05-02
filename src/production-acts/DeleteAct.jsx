@@ -18,7 +18,7 @@ export default function DeleteAct() {
     return (
         <div>
             <h1>Delete Cast</h1>
-            <h2>Are you sure you want to delete the act?</h2>
+            <p>Are you sure you want to delete the act?</p>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
             <Button variant="primary" onClick={() => navigate("/actsHome")}>No</Button>
         </div>

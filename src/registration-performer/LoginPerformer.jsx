@@ -8,6 +8,7 @@ import AppContext from "../AppContext.jsx";
 
 
 import {Link, useNavigate} from "react-router-dom";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 const cookies = new Cookies();
 
@@ -84,13 +85,8 @@ export default function LoginPerformer() {
 
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p>Don't have an account?</p>
-            <Link to="/registerPerformer">
-                <Button variant="primary" type="submit">
-                    Register
-                </Button>
-            </Link>
 
-
+            <ButtonComponent buttonText="Register" linkPath="/registerPerformer" variant="primary"/>
 
         </main-div>
     );

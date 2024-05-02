@@ -5,6 +5,7 @@ import PerformerModal from "./PerformerModal.jsx";
 import {Button} from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function CreatePerformer() {
 
@@ -40,9 +41,9 @@ export default function CreatePerformer() {
     return (
         <div>
             <h1>Performers from Registry</h1>
-            <Link to="/performersHome">
-                <Button variant="primary">Back to Performers</Button>
-            </Link>
+
+            <ButtonComponent path="/performersHome" label="Back to Performers" variant="primary"/>
+
             <Accordion>
                 {performersFromRegistry.map((performer, index) => (
                     <Accordion.Item eventKey={index.toString()} key={index}>

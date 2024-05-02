@@ -6,6 +6,7 @@ import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import TodoModal from '../TodoModal.jsx';
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function CastHome() {
 
@@ -37,22 +38,20 @@ export default function CastHome() {
                 <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/manifestHome" }}>Manifests</Breadcrumb.Item>
                 <Breadcrumb.Item active>Casts</Breadcrumb.Item>
             </Breadcrumb>
-            <Link to="/createCast">
-                <Button variant="primary">Create new Cast</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Create new Cast" linkPath="/createCast" variant="primary"/>
 
             <Button variant="success" onClick={() => {
                 setShowTodoModal(true);
-            }}>Show Todos</Button>
+            }}>Show Garments</Button>
             <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
 
-            <Link to="/manifestHome">
-                <Button variant="primary">Back to Manifests</Button>
-            </Link>
+            <ButtonComponent buttonText="Back to Manifests" linkPath="/manifestHome" variant="primary"/>
+
             {casts.map((cast, index) => (
                 <div key={index}>
                     <Accordion className="accordion-fixed-width">
-                        <Accordion.Item eventKey={index.to}>
+                        <Accordion.Item eventKey={index.toString()}>
                             <Accordion.Header>{cast.name}</Accordion.Header>
                             <Accordion.Body>
                                 <p>Cast id: {cast.id}</p>

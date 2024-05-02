@@ -17,7 +17,7 @@ export default function DeleteCostume() {
     return (
         <div>
             <h1>Delete Costume</h1>
-            <h2>Are you sure you want to delete the Costume?</h2>
+            <p>Are you sure you want to delete the Costume?</p>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
             <Button variant="primary" onClick={() => navigate("/costumesHome")}>No</Button>
         </div>

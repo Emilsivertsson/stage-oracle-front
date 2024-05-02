@@ -17,7 +17,7 @@ export default function DeleteCast() {
     return (
         <div>
             <h1>Delete Cast</h1>
-            <h2>Are you sure you want to delete the Cast?</h2>
+            <p>Are you sure you want to delete the Cast?</p>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
             <Button variant="primary" onClick={() => navigate("/castHome")}>No</Button>
         </div>

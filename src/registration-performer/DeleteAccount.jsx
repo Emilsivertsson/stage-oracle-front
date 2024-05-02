@@ -12,7 +12,7 @@ export default function DeleteAccount() {
     return (
         <div>
             <h1>Delete Account</h1>
-            <h2>Are you sure you want to delete your account?</h2>
+            <p>Are you sure you want to delete your account?</p>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
             <Button variant="primary" onClick={() => navigate("/performerHome")}>No</Button>
         </div>

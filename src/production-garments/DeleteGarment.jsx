@@ -17,7 +17,7 @@ export default function DeleteGarment() {
     return (
         <div>
             <h1>Delete Garment</h1>
-            <h2>Are you sure you want to delete the Garment?</h2>
+            <p>Are you sure you want to delete the Garment?</p>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
             <Button variant="primary" onClick={() => navigate("/garmentsHome")}>No</Button>
         </div>

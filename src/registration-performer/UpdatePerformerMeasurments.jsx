@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getOnePerformer, updatePerformerMeasurements } from "../api/Registration-Perfomer-Axios.jsx"; // Ensure these functions are defined in your API utility
 import {Link, useNavigate} from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function UpdatePerformerMeasurements() {
     const navigate = useNavigate();
@@ -120,9 +121,7 @@ export default function UpdatePerformerMeasurements() {
                     Update
                 </Button>
             </Form>
-            <Link to="/performerHome">
-                <Button variant="primary">Back</Button>
-            </Link>
+            <ButtonComponent buttonText="Back" linkPath="/performerHome" variant="primary"/>
 
             {!isCorrectInput && (
                 <h3>Incorrect input, please try again</h3>

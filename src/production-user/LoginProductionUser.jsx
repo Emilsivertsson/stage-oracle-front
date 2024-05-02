@@ -6,6 +6,7 @@ import {loginUser} from "../api/Production-User-Axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import Cookies from "universal-cookie";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 const cookies = new Cookies();
 
@@ -36,6 +37,8 @@ export default function LoginUser() {
                 navigate(updatedUsernameCookie === "admin" ? "/adminProductionHome" : "/productionHome");
             } else if (result.message.includes("400") || result.message.includes("404")) {
                 setErrorMessage("No user found");
+            } else {
+                setErrorMessage("Wrong credentials. Please try again.");
             }
 
         } catch (error) {
@@ -79,13 +82,8 @@ export default function LoginUser() {
 
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p>Don't have an account?</p>
-            <Link to="/registerProductionUser">
-                <Button variant="primary" type="submit">
-                    Register
-                </Button>
-            </Link>
 
-
+            <ButtonComponent buttonText="Register" linkPath="/registerProductionUser" variant="primary"/>
 
         </main-div>
     );

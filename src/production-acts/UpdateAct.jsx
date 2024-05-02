@@ -3,6 +3,7 @@ import {useNavigate, Link} from "react-router-dom";
 import {getOneAct, updateAct} from "../api/Production-Acts-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function UpdateAct() {
 
@@ -62,9 +63,8 @@ export default function UpdateAct() {
                     Update Act
                 </Button>
             </Form>
-            <Link to="/actsHome">
-                <Button variant="primary">Back to Acts</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Back" linkPath="/actsHome" variant="primary"/>
         </div>
     )
 

@@ -18,7 +18,7 @@ export default function DeleteProduction() {
     return (
         <div>
             <h1>Delete Production</h1>
-            <h2>Are you sure you want to delete the production?</h2>
+            <p>Are you sure you want to delete the production?</p>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
             <Button variant="primary" onClick={() => navigate("/productionHome")}>No</Button>
         </div>

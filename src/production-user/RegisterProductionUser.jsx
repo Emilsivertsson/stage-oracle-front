@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../api/Production-User-Axios.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function LoginPerformer() {
     const [username, setUsername] = useState("");
@@ -91,9 +92,7 @@ export default function LoginPerformer() {
             </Form>
 
             <p>Already have an account?</p>
-            <Link to="/loginProductionUser">
-                <Button variant="primary">Login</Button>
-            </Link>
+            <ButtonComponent buttonText="Login" linkPath="/loginProductionUser" variant="primary"/>
 
             {buttonClicked && (registered ? (
                 <h3>Registered..redirecting</h3>

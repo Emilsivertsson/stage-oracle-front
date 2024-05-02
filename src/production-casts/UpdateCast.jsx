@@ -3,6 +3,7 @@ import { useNavigate, Link} from "react-router-dom";
 import {getOneManifestCast, updateManifestCast} from "../api/Production-Cast-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function UpdateCast() {
 
@@ -62,9 +63,8 @@ export default function UpdateCast() {
                     Update Cast
                 </Button>
             </Form>
-            <Link to="/castHome">
-                <Button variant="primary">Back to Cast</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Back to Cast" linkPath="/castHome" variant="primary"/>
         </div>
     )
 

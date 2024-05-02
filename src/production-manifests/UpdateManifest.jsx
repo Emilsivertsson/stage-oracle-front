@@ -3,6 +3,7 @@ import { useNavigate, Link} from "react-router-dom";
 import {getOneProductionManifest, updateProductionManifest} from "../api/Production-Manifests-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function UpdateManifest() {
 
@@ -70,9 +71,9 @@ export default function UpdateManifest() {
                     Update Manifest
                 </Button>
             </Form>
-            <Link to="/manifestHome">
-                <Button variant="primary">Back to Manifests</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Back to Manifests" linkPath="/manifestHome" variant="primary"/>
+
         </div>
     )
 

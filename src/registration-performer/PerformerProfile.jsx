@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getOnePerformer } from "../api/Registration-Perfomer-Axios.jsx";
+import Table from 'react-bootstrap/Table';
 
 export default function PerformerProfile() {
     const [performer, setPerformer] = useState({
@@ -25,30 +26,30 @@ export default function PerformerProfile() {
             <h1 className="text-center">Performer Profile</h1>
             <h4>Please keep your Profile and Measurements updated!</h4>
 
-            <table>
+            <Table striped bordered hover>
                 <tbody>
-                <tr>
-                    <td><strong>First Name:</strong></td>
-                    <td>{performer.firstName}</td>
-                </tr>
-                <tr>
-                    <td><strong>Last Name:</strong></td>
-                    <td>{performer.lastName}</td>
-                </tr>
-                <tr>
-                    <td><strong>Email:</strong></td>
-                    <td>{performer.email}</td>
-                </tr>
-                <tr>
-                    <td><strong>Phone Number:</strong></td>
-                    <td>{performer.phoneNr}</td>
-                </tr>
-                <tr>
-                    <td><strong>Department:</strong></td>
-                    <td>{performer.department}</td>
-                </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td>{performer.firstName}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>{performer.lastName}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{performer.email}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>{performer.phoneNr}</td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td>{performer.department}</td>
+                    </tr>
                 </tbody>
-            </table>
+            </Table>
         </div>
     );
 }

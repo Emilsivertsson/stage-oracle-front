@@ -3,6 +3,7 @@ import {useNavigate, Link} from "react-router-dom";
 import {getOneProduction, updateProduction} from "../api/Production-productions-Axios.jsx";
 import {Form, Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 
 export default function UpdateProduction() {
@@ -92,9 +93,8 @@ export default function UpdateProduction() {
                     Update Production
                 </Button>
             </Form>
-            <Link to="/productionHome">
-                <Button variant="primary">Back to Productions</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Back to Productions" linkPath="/productionHome" variant="primary"/>
 
         </main-div>
     )

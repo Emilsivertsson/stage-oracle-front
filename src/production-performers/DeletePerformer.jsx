@@ -17,7 +17,7 @@ export default function DeletePerformer() {
     return (
         <div>
             <h1>Delete Performer</h1>
-            <h2>Are you sure you want to delete the Performer?</h2>
+            <p>Are you sure you want to delete the Performer?</p>
             <Button variant="danger" onClick={handleDelete}>Yes</Button>
             <Button variant="primary" onClick={() => navigate("/performersHome" )}>No</Button>
         </div>

@@ -6,6 +6,7 @@ import {Button} from "react-bootstrap";
 import AppContext from "../AppContext.jsx";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import TodoModal from '../TodoModal.jsx';
+import ButtonComponent from "../../components/ButtonComponent.jsx";
 
 export default function ActsHome() {
 
@@ -38,18 +39,16 @@ export default function ActsHome() {
                 <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/performersHome" }}>Performers</Breadcrumb.Item>
                 <Breadcrumb.Item active>Acts</Breadcrumb.Item>
             </Breadcrumb>
-            <Link to="/createAct">
-                <Button variant="primary">Create new Act</Button>
-            </Link>
+
+            <ButtonComponent buttonText="Create new Act" linkPath="/createAct" variant="primary"/>
 
             <Button variant="success" onClick={() => {
                 setShowTodoModal(true);
-            }}>Show Todos</Button>
+            }}>Show Garments</Button>
             <TodoModal show={showTodoModal} onHide={() => setShowTodoModal(false)}/>
 
-            <Link to="/performersHome">
-                <Button variant="primary">Back to Performers</Button>
-            </Link>
+            <ButtonComponent buttonText="Back to Performers" linkPath="/performersHome" variant="primary"/>
+
             {acts.map((act, index) => (
                 <div key={index}>
                     <Accordion className="accordion-fixed-width" >
