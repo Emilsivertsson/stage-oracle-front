@@ -42,11 +42,8 @@ export default function LoginPerformer() {
                         navigate("/profileUpdate");
                     }
                 }
-
-
-            } else {
-                setErrorMessage("Login failed. Please try again.")
-                console.log("Login failed. Please try again.");
+            } else if (result.message.includes("400") || result.message.includes("404")) {
+                setErrorMessage("No user found");
             }
 
         } catch (error) {
@@ -82,8 +79,8 @@ export default function LoginPerformer() {
                 </Button>
             </Form>
             <br/>
-            {buttonClicked && !errorMessage && <p>Loading...</p>}
-            {errorMessage && <p>{errorMessage}</p>}
+            {buttonClicked && !errorMessage && <h3>Loading...</h3>}
+            {errorMessage && <h3>{errorMessage}</h3>}
 
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p>Don't have an account?</p>

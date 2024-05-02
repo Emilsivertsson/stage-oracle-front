@@ -32,6 +32,7 @@ const initialGlobalState = {
     costumeId: null,
     garmentId: null,
     loggedIn: false,
+    production: false,
 };
 
 function Main() {

@@ -11,6 +11,7 @@ export default function LoginPerformer() {
     const [acceptTerms, setAcceptTerms] = useState(false);
     const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
     const [passwordError, setPasswordError] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
 
     const validatePassword = (password) => {
@@ -35,30 +36,27 @@ export default function LoginPerformer() {
         e.preventDefault();
         setButtonClicked(true);
 
-        if (!isPasswordCorrect || !acceptTerms) {
-            setRegistered(false);
-            return;
-        }
-
         try {
             const result = await registerPerformer(username, password);
             if (result.success) {
                 setRegistered(true);
                 navigate("/loginPerformer");
+            } else if (result.message === 'User already exists') {
+                setErrorMessage("User already exists");
+                setRegistered(false);
             } else {
-                setPasswordError("Registration failed. Please try again.");
+                setErrorMessage("Registration failed. Please try again.");
                 setRegistered(false);
             }
         } catch (error) {
-            console.log(error);
-            setPasswordError("Registration failed. Please try again.");
+            setErrorMessage("Registration failed. Please try again.");
             setRegistered(false);
         }
     }
 
     return (
         <main-div>
-            <h1>Register Performer</h1>
+            <h1>Register New Performer</h1>
             <Form className="form" onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
@@ -95,7 +93,7 @@ export default function LoginPerformer() {
                 </Form.Group>
                 <br/>
 
-                <Button id="registerBtn" variant="primary" type="submit" disabled={!acceptTerms || !acceptTerms}>
+                <Button id="registerBtn" variant="primary" type="submit" disabled={!acceptTerms || !isPasswordCorrect}>
                     Register
                 </Button>
             </Form>
@@ -108,7 +106,7 @@ export default function LoginPerformer() {
             {buttonClicked && (registered ? (
                 <h3>Registered..redirecting</h3>
             ) : (
-                <h3>Not Registered, Try again!</h3>
+                <h3>{errorMessage}</h3>
             ))}
         </main-div>
     );

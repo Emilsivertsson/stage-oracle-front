@@ -30,12 +30,12 @@ export default function LoginUser() {
                 const updatedUsernameCookie = cookies.get("username");
                 updateGlobalState({
                     ...globalState,
-                    loggedIn: true
+                    loggedIn: true,
+                    production: true
                 });
                 navigate(updatedUsernameCookie === "admin" ? "/adminProductionHome" : "/productionHome");
-            } else {
-                setErrorMessage("Login failed. Please try again.")
-                console.log("Login failed. Please try again.");
+            } else if (result.message.includes("400") || result.message.includes("404")) {
+                setErrorMessage("No user found");
             }
 
         } catch (error) {

@@ -17,7 +17,8 @@ export default function Header() {
         cookies.remove("jwt");
         updateGlobalState({
             ...globalState,
-            loggedIn: false
+            loggedIn: false,
+            production: false,
         });
     }
 
@@ -30,7 +31,7 @@ export default function Header() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
 
-                        {globalState.loggedIn && <Nav.Link href="/awanChat">Ask the Oracle</Nav.Link>}
+                        {(globalState.loggedIn && globalState.production) && <Nav.Link href="/awanChat">Ask the Oracle</Nav.Link>}
 
                         <Nav.Link href="/loginPerformer">Performer login</Nav.Link>
                         <Nav.Link href="/loginProductionUser">Production User login</Nav.Link>
