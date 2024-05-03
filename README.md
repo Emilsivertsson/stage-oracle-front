@@ -70,8 +70,11 @@ For Production Users:
 - Perform CRUD operations on productions and its underlying data
 - Import Performers from the Performer API into Productions.
 - Send emails to Performers.
+- Ask Ai for advice thanks to integration with the Awan LLM API.
 
 For Admin:  
 - CRUD operations on all Users and Performers.
 
 ## Tests
+Tests has been written with Cypress and can be found in the cypress folder. \
+although the tests are not complete for the whole application, they are a good starting point for future development.

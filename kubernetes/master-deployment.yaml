@@ -60,4 +60,4 @@ spec:
       port: 3000
       #port inside the container
       targetPort: 3000
-  type: LoadBalancer
+  type: ClusterIP
