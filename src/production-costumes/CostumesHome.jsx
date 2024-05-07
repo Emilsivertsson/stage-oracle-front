@@ -56,8 +56,6 @@ export default function CostumesHome() {
                         <Accordion.Item eventKey={index.toString()}>
                             <Accordion.Header>{costume.name}</Accordion.Header>
                             <Accordion.Body>
-                                <p>Costume id: {costume.id}</p>
-
                                 <Link to={`/garmentsHome`}>
                                     <Button variant="primary" onClick={() => handleButtonClick(costume.id)}>View Garments</Button>
                                 </Link>

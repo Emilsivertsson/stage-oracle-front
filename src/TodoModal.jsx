@@ -36,7 +36,7 @@ export default function TodoModal({show, onHide}) {
     return (
         <Modal show={show} onHide={onHide}>
             <Modal.Header closeButton>
-                <Modal.Title>Todos</Modal.Title>
+                <Modal.Title>Garments not finished</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 {todos.map((todo, index) => (
