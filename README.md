@@ -28,6 +28,9 @@ The app will be running on localhost:3000
 ### OR 
 You can visit the backend project linked above and use the Docker-compose file to run the whole project. \
 
+### OR
+You can visit the backend project linked above and run the project in MiniKube via the master-deployment.yaml file. \
+
 ## Usage
 Open you favorite browser and go to localhost:3000. \
 
