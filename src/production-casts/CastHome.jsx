@@ -54,8 +54,6 @@ export default function CastHome() {
                         <Accordion.Item eventKey={index.toString()}>
                             <Accordion.Header>{cast.name}</Accordion.Header>
                             <Accordion.Body>
-                                <p>Cast id: {cast.id}</p>
-
                                 <Link to="/performersHome">
                                     <Button variant="primary" onClick={() => handleButtonClick(cast.id)}>View Performers</Button>
                                 </Link>

@@ -20,6 +20,8 @@ import * as ProductionCastRoutes from "./routes/ProductionCastRoutes.jsx";
 import * as ProductionAdminRoutes from "./routes/ProductionAdminRoutes.jsx";
 import * as ProductionPerformerRoutes from "./routes/ProductionPerformerRoutes.jsx";
 import * as ProductionUserRoutes from "./routes/ProductionUserRoutes.jsx";
+import {DevSupport} from "@react-buddy/ide-toolbox";
+import {ComponentPreviews, useInitial} from "./dev/index.js";
 
 const initialGlobalState = {
     username: "",
@@ -44,7 +46,7 @@ function Main() {
 
     return (
         <AppContext.Provider value={{globalState, updateGlobalState}}>
-            <RouterProvider router={router} />
+            <RouterProvider router={router}/>
         </AppContext.Provider>
     );
 
@@ -54,10 +56,10 @@ const router = createBrowserRouter([
 
     {
         path: '/',
-        element: <Layout />,
-        errorElement: <PageNotFound />,
+        element: <Layout/>,
+        errorElement: <PageNotFound/>,
         children: [
-            { path: '/', element: <Home />},
+            {path: '/', element: <Home/>},
             ...PerformerRoutes.routes,
             ...AwanRoutes.routes,
             ...PerformerAdminRoutes.routes,
@@ -70,14 +72,18 @@ const router = createBrowserRouter([
             ...ProductionPerformerRoutes.routes,
             ...ProductionProductionRoutes.routes,
             ...ProductionUserRoutes.routes,
-            { path: '*', element: <PageNotFound />}
+            {path: '*', element: <PageNotFound/>}
         ]
     }
 ]);
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Main />
-  </React.StrictMode>,
+    <React.StrictMode>
+        <DevSupport ComponentPreviews={ComponentPreviews}
+                    useInitialHook={useInitial}
+        >
+            <Main/>
+        </DevSupport>
+    </React.StrictMode>,
 )

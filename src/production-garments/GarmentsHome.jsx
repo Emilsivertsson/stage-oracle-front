@@ -62,7 +62,6 @@ export default function GarmentsHome() {
                                     <Badge id="garmentPill" pill bg="success">Done</Badge> :
                                     <Badge id="garmentPill" pill bg="danger">Not Done</Badge>
                                 }
-                                <p>Garment id: {garment.id}</p>
                                 <p>Garment description: {garment.description}</p>
 
                                 <Link to="/updateGarment">

@@ -8,7 +8,7 @@ import {Badge, Button} from "react-bootstrap";
 export default function TodoModal({show, onHide}) {
 
 
-    const {globalState, updateGlobalState} = useContext(AppContext);
+    const {globalState} = useContext(AppContext);
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
