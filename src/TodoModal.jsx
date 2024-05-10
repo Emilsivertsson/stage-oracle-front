@@ -41,7 +41,7 @@ export default function TodoModal({show, onHide}) {
             <Modal.Body>
                 {todos.map((todo, index) => (
                     <div key={index}>
-                        <Accordion className="accordion-fixed-width" >
+                        <Accordion  className="accordion-modal" >
                             <Accordion.Item eventKey={index.toString()}>
                                 <Accordion.Header>{todo.name}</Accordion.Header>
                                 <Accordion.Body>
