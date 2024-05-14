@@ -26,21 +26,14 @@ npm run dev
 The app will be running on localhost:3000
 
 ### OR 
-You can visit the backend project linked above and use the Docker-compose file to run the whole project. \
+You can visit the backend project linked above and use the Docker-compose file to run the whole project.
 
 ### OR
-You can visit the backend project linked above and run the project in MiniKube via the master-deployment.yaml file. \
+You can visit the backend project linked above and run the project in MiniKube via the master-deployment.yaml file. 
 
 ## Usage
-Open you favorite browser and go to localhost:3000. \
+Open you favorite browser and go to localhost:3000. 
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an assets/images folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-```md
-![alt text](assets/images/screenshot.png)
-```
 ## Credits
 My friend Palebro for reading through my code and giving me feedback.
 https://github.com/palerbro
